@@ -21,7 +21,7 @@ const port = process.env.PORT || 3000
 
 app.use(cookieParser())
 app.use(cors({
-  origin: "https://carekerala-kerala.vercel.app",
+  origin: ["https://carekerala-kerala.vercel.app"],
   methods: ["POST", "GET", "DELETE",],
   credentials: true
 }))
