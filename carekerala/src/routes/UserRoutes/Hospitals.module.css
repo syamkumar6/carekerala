@@ -1,0 +1,222 @@
+@import url('../../index.css');
+
+.hospitalPage {
+  padding: 2rem 5rem;
+}
+
+.pageHeader {
+  height: 15rem;
+  padding: 3rem 6rem;
+  background-image: url("../../assets/headerBg.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.flexRow3{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgb(212, 211, 211);
+}
+
+.searchDiv{
+  display: flex;
+  align-items: center;
+  background-color: rgb(243, 243, 243);
+  max-height: 4rem;
+  overflow: hidden;
+}
+
+.searchDiv input{
+  background-color: transparent;
+  width: 20rem;
+  padding: 1rem;
+  margin: 0;
+}
+
+.searchDiv button{
+  background-color: var(--primary-color);
+  color: var(--text-white);
+  font-weight: bold;
+  padding: 2rem;
+  margin: 0;
+  border: none;
+}
+
+.pageHeader h2 {
+  font-family: var(--heading-font-family);
+  font-size: 3rem;
+  padding-bottom: 1rem;
+}
+
+.pageHeader p{
+  font-family: var(--paragraph-font-family);
+  font-size: 1.1rem;
+}
+
+.sectionSidebar {
+    width: 20%;
+    height: 100%;
+    padding: 1rem 2rem;
+    background-color: var(--background-color);
+}
+
+.ContentDiv {
+    flex: 1;
+    padding: 2rem ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--background-color);
+    border-left: 1px solid rgb(192, 191, 191);
+}
+
+
+.hospitalCard {
+  background-color: var(--background-color);
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  height: 20rem;
+  border: 2px solid rgb(219, 219, 219);
+  border-radius: 5px;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+  max-width: 55rem;
+}
+
+.cardHeader {
+  background-color: rgb(219, 219, 219);
+  color: var(--primary-color-light);
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+}
+
+.cardHeader img {
+  max-width: 2rem;
+}
+
+.flexRow {
+  display: flex;
+  gap: 2rem;
+  max-height: 100%;
+  margin: 1rem;
+}
+
+.flexRow2 {
+  display: flex;
+  gap: 2rem;
+  background-color: var(--background-color);
+}
+
+.sectionSidebar {
+  width: 20%;
+  height: 100%;
+  padding: 1rem 2rem;
+  background-color: var(--background-color);
+}
+
+.flexRow img {
+  max-width: 15rem;
+  max-height: 10rem;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 5px;
+}
+
+.flexCol {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.flexRow p {
+  max-height: 10rem;
+  overflow: scroll;
+}
+
+.btnDiv {
+  align-self: flex-end;
+  display: flex;
+  gap: 1rem;
+}
+
+.btnCall {
+  background-color: var(--primary-color);
+  color: var(--text-white);
+  padding: 0.4rem 1.3rem;
+  font-weight: 600;
+  border: 2px solid var(--primary-color);
+}
+
+.btnCall:hover {
+  transform: scale(1.03);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btnGreen {
+  text-decoration: none;
+  background-color: transparent;
+  color: var(--primary-color);
+  padding: 0.4rem 0.8rem;
+  font-weight: 600;
+  border: 2px solid var(--primary-color);
+}
+
+.btnGreen:hover {
+  background-color: var(--primary-color);
+  color: var(--text-white);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .flexRow {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hospitalCard {
+    height: 100%;
+    margin-left: -2rem;
+  }
+
+  .hospitalPage {
+    padding: 1rem;
+  }
+
+  .sectionSidebar{
+    display: none;
+  }
+
+  .ContentDiv{
+    padding: 0px;
+  }
+  .hospitalCard{
+    margin: 1rem;
+  }
+
+  .flexRow3{
+    flex-direction: column;
+
+  }
+
+  .searchDiv input{
+    width: 10rem;
+    padding: .5rem;
+  }
+
+  .searchDiv button{
+    padding: .5rem;
+  }
+
+  .pageHeader p{
+    display: none;
+  }
+}

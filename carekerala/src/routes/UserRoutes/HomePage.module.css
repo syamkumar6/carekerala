@@ -1,0 +1,136 @@
+@import url("../../index.css");
+
+.overviewSection {
+  background-color: var(--background-color);
+  padding: 4rem 6rem;
+}
+
+.topSection {
+  position: relative;
+}
+.searchFields {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+}
+
+.searchDiv {
+  display: flex;
+  align-items: center;
+  background-color: rgb(243, 243, 243);
+  max-height: 4rem;
+  overflow: hidden;
+}
+
+.searchDiv input {
+  background-color: transparent;
+  width: 20rem;
+  padding: 1rem;
+  margin: 0;
+}
+
+.searchDiv button {
+  display: flex;
+  gap: 0.4rem;
+  background-color: var(--primary-color);
+  color: var(--text-white);
+  font-weight: bold;
+  padding: 2rem;
+  margin: 0;
+  border: none;
+}
+
+.contactBtn{
+  position: fixed;
+  bottom: 10%;
+  right: 10%;
+  z-index: 100;
+}
+
+.contactBtn button {
+  width: 4.5rem;
+  height: 4.5rem;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border: none;
+}
+
+.contactBtn img{
+  width: 40%;
+}
+
+.contactBtn button::before {
+  content: "";
+  position: absolute;
+  border: 1px solid var(--primary-color);
+  width: calc(100% + 40px);
+  height: calc(100% + 40px);
+  border-radius: 50%;
+  animation: pulse 1s linear infinite
+}
+
+.contactBtn button::after {
+  content: "";
+  position: absolute;
+  border: 1px solid var(--primary-color);
+  width: calc(100% + 40px);
+  height: calc(100% + 40px);
+  border-radius: 50%;
+  animation: pulse 2s linear infinite;
+  animation-delay: 0.3s
+}
+
+@keyframes pulse {
+  0% {
+      transform: scale(0.5);
+      opacity: 0
+  }
+
+  50% {
+      transform: scale(1);
+      opacity: 1
+  }
+
+  100% {
+      transform: scale(1.3);
+      opacity: 0
+  }
+}
+.contactBtn:hover button::before,
+.contactBtn:hover button::after {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .overviewSection {
+    padding: 1rem;
+  }
+
+  .searchFields{
+    bottom: 0;
+    flex-direction: column;
+    gap: .5rem;  
+  }
+
+  .searchDiv input{
+    width: 10rem;
+    padding: .5rem;
+  }
+
+  .searchDiv button{
+    padding: .5rem;
+    font-weight: 100;
+    font-size: small;
+  }
+
+  .searchDiv button img{
+    display: none;
+  }
+}

@@ -1,0 +1,138 @@
+@import url('../../index.css');
+
+.header {
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+}
+
+.logoImg {
+  height: 100%;
+  height: 6rem;
+  object-fit: cover;
+  object-position: center;
+}
+.secondDiv {
+  background-color: var(--primary-color);
+  color: var(--text-white);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
+.firstHalf {
+  font-size: 2.1rem;
+  font-weight: bold;
+}
+.fnavList {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+}
+
+.btnClose{
+  position: fixed;
+  top: 4%;
+  right: 4%;
+  border: none;
+  background-color: transparent;
+}
+
+.menuBtn{
+  display: none;
+  background-color: transparent;
+}
+.link {
+  text-decoration: none;
+  color: var(--text-white);
+  font-weight: bold;
+  opacity: 90%;
+}
+.link:hover {
+  opacity: 100%;
+  cursor: pointer;
+}
+
+.sideNavBar{
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 75%;
+  height: 100vh;
+  background-color: var(--text-white);
+  transition: all .3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+  justify-content: center;
+  z-index: 100;
+}
+
+.sideNavBarVsbl{
+  transform: translateX(0);
+  z-index: 100 !important;
+}
+
+.sideNavBarHide{
+  transform: translateX(100%);
+}
+
+.btnRed {
+  background-color: var(--btn-red);
+  border: none;
+  color: var(--text-white);
+  font-weight: bold;
+  padding: .3rem .8rem;
+}
+
+.btnRed:hover {
+  border: none;
+  transform: scale(1.03);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+   
+
+  .headerSerch{
+    display:none;
+  }
+
+  .fnavList{
+    display: none;
+  }
+  .sideNavBar{
+    z-index: 100 !important;
+  }
+  .snavList {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    z-index: 100;
+  }
+
+  .menuBtn{
+    display: block;
+  }
+
+  .logoImg{
+    height: 4.5rem;
+  }
+
+  .headerBtn{
+    padding: .5rem;
+  }
+  
+  .link{
+    color: var(--primary-color);
+  }
+  
+}

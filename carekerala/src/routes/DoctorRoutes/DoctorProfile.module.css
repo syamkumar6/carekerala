@@ -1,0 +1,126 @@
+.doctorProfileMain{
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 4rem;
+}
+
+.logoutBtn{
+  align-self: flex-end;
+  background-color: var(--btn-red);
+  color: var(--text-white);
+  border: none;
+  padding: .7rem 1.5rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+.logoutBtn:hover{
+  transform: scale(1.03);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+
+.appointmentDiv{
+    padding: 3rem 6rem;
+}
+
+.container {
+  display: flex;
+  gap: 1rem;
+  background-color: var(--background-color);
+  margin-top: 1rem ;
+}
+
+.sidebar{
+  padding: 4rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 20%;
+  border-right: 1px solid gray;
+}
+
+
+.contentDiv{
+  flex: 1;
+}
+
+.appointmentDiv h2{
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+
+.appointmentCard {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  margin-bottom: 1rem;
+  background-color: rgb(228, 226, 226);
+  padding: 0.8rem 1rem;
+}
+
+.headerBtnsDiv{
+  display: flex;
+  justify-content: space-between;
+}
+
+.appointmentCard div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.appointmentCard img {
+  max-width: 3rem;
+}
+
+.spanRed{
+  color: var(--btn-red);
+}
+
+.spanGreen{
+  color: var(--primary-color-light);
+}
+
+.date {
+  font-weight: 600;
+}
+
+.divCenter{
+  display: flex;
+  flex-direction: column;
+}
+
+.btnRed {
+  align-self: flex-start;
+  color: var(--btn-red);
+  border: 1px solid var(--btn-red);
+  font-size: 0.8rem;
+  padding: .3rem .6rem;
+}
+
+.btnRed:hover {
+  color: var(--text-white);
+  background-color: var(--btn-red);
+  border: 1px solid var(--btn-red);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px){
+  .doctorProfileMain{
+    padding: 1rem;
+  }
+  .container{
+    flex-direction: column;
+  }
+  .sidebar{
+    width: 100%;
+    padding-bottom: 0;
+  }
+  .appointmentDiv{
+    padding: 2rem ;
+  }
+}

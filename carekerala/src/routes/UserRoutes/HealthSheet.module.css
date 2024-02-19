@@ -1,0 +1,234 @@
+.container{
+    padding: 3rem 8rem;
+}
+
+.flexCol{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.flexRow{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.hSheet{
+    background-color: rgb(223, 222, 222);
+    border-radius: 7px;
+    overflow: hidden;
+}
+
+.wFull{
+    width: 100%;
+}
+
+.sheetBtn{
+    border: 1px solid;
+    padding: .3rem .6rem;
+}
+
+.sheetBtn:hover{
+    transform: scale(1.01);
+    transition: all .3s ease;
+    cursor: pointer;
+}
+
+.btnDark{
+    border: 1px solid;
+    align-self: flex-start;
+    padding: .3rem .6rem;
+}
+
+.btnDark:hover{
+    transform: scale(1.03);
+    transition: all .3s ease;
+    cursor: pointer;
+}
+
+.btnRed{
+    border: 1px solid var(--btn-red);
+    color: var(--btn-red);
+    align-self: flex-start;
+    margin-bottom: .5rem;
+    padding: .3rem .6rem;
+}
+
+.btnRed:hover{
+    transform: scale(1.03);
+    transition: all .3s ease;
+    cursor: pointer;
+}
+
+.btnSelfRed{
+    border: 1px solid var(--btn-red);
+    color: var(--btn-red);
+    align-self: flex-end;
+    margin-bottom: .5rem;
+    padding: .3rem .6rem;
+}
+
+.btnSelfRed:hover{
+    transform: scale(1.03);
+    transition: all .3s ease;
+    cursor: pointer;
+}
+
+.btnSelfDark{
+    border: 1px solid ;
+    align-self: flex-end;
+    padding: .3rem .6rem;
+}
+
+.btnSelfDark:hover{
+    transform: scale(1.03);
+    transition: all .3s ease;
+    cursor: pointer;
+}
+
+.btnCancel{
+    background-color: var(--btn-red);
+    color:  var(--text-white);
+    padding: .5rem 2rem;
+}
+
+.btnCancel:hover{
+    transform: scale(1.03);
+    transition: all .3s ease;
+    cursor: pointer;
+}
+
+.btnSave{
+    background-color: rgb(15, 15, 15);
+    color:  var(--text-white);
+    padding: .5rem 2rem;
+}
+
+.btnSave:hover{
+    transform: scale(1.03);
+    transition: all .3s ease;
+    cursor: pointer;
+}
+
+.hSheet span{
+    font-weight: 500;
+    list-style: none;
+}
+
+.listCol{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.sheetHeader{
+    background-color: var(--primary-color-light);
+    color: var(--text-white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+}
+
+.sheetHeader div{
+    display: flex;
+    flex-direction: column;
+}
+
+.sheetHeader span{
+    display: flex;
+    align-items: center;
+}
+
+.sheetHeader h2{
+    margin-top: 1rem;
+}
+
+.sheetInnerDiv1{
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+    border-bottom: 1px solid rgb(199, 197, 197);
+}
+
+.sheetInnerDiv1 img{
+    width: 100%;
+    max-width: 15rem;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 5px;
+}
+
+.bgDiv{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%; 
+    background-image: url("../../assets/hSheetbg2.png");
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-position: center center;
+    z-index: 1;
+    opacity: 15%;
+}
+
+.sheetDetails{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+    position: relative;
+}
+
+.editingSheetDetails{
+    padding: 1rem 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+}
+
+.editingDivCol{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.btnDiv{
+    display: flex;
+    justify-content: space-between;
+    margin: .5rem 1rem;
+}
+
+.bottomBtns{
+    align-self: flex-end;
+    display: flex;
+    gap: 2rem;
+}
+
+.hideInPdf {
+    display: none;
+}
+
+@media screen and (max-width: 768px){
+    .container{
+        padding: 1rem;
+    }
+    .hide {
+        display: none !important;
+    }
+    .sheetInnerDiv1{
+        flex-direction: column;
+    }
+    .editingSheetDetails{
+        padding: 1rem;
+    }
+    .editingDivCol{
+        width: 100%;
+    }
+}

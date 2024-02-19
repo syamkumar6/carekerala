@@ -1,0 +1,33 @@
+.cardBody{
+    display: flex;
+    justify-content: center;
+    gap: .5rem;
+    margin: .8rem;
+    color: var(--color-black);
+    border-bottom: 1px solid gray;
+}
+
+.userImg{
+    width: 4rem;
+    height: 4rem;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    margin-top: .6rem;
+}
+
+.cardDetails{
+    display: flex;
+    flex-direction: column;
+    padding: .6rem;
+    width: 100%;
+}
+
+.cardDetails p{
+    border: none;
+    margin: 0;
+}
+
+.cardDetails span{
+    opacity: 80%;
+}

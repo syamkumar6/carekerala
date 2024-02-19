@@ -1,0 +1,51 @@
+.main{
+    min-height: 90vh;
+    padding: 2rem ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.topbar{
+    display: flex;
+    gap: 1rem;
+}
+
+table{
+    width: 100%;
+    border: 1px solid rgb(201, 199, 199);
+    margin-bottom: 2rem;
+}
+
+tr{
+    border: 1px solid rgb(201, 199, 199);
+}
+
+td{
+    padding: .5rem;
+    border-right: 1px solid rgb(201, 199, 199);
+}
+
+th{
+    padding: .5rem;
+    border-right: 1px solid rgb(201, 199, 199);
+}
+
+.pRed{
+    color: var(--btn-red);
+}
+
+.btnRed {
+    color: var(--btn-red);
+    border: 1px solid var(--btn-red);
+    font-size: 0.8rem;
+    padding: .3rem .6rem;
+  }
+  
+  .btnRed:hover {
+    color: var(--text-white);
+    background-color: var(--btn-red);
+    border: 1px solid var(--btn-red);
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }

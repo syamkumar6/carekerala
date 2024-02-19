@@ -1,0 +1,79 @@
+.doctorsSlider {
+  padding: 4rem 6rem;
+  padding-bottom: 8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.doctorsSlider h2 {
+  font-family: var(--heading-font-family);
+  font-size: 3rem;
+  align-self: flex-start;
+  border-bottom: 3px solid var(--primary-color);
+  padding-bottom: .5rem;
+}
+
+.doctorsSlider p{
+  font-family: var(--paragraph-font-family);
+  font-weight: 400;
+  font-size: 1.1rem;
+}
+
+.customArrow {
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border: 1px solid var(--primary-color);
+  color: var(--text-white);
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.prevArrow {
+  position: absolute;
+  bottom: -7rem;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.nextArrow {
+  position: absolute;
+  bottom: -7rem;
+  left: 7rem;
+  transform: translateY(-50%);
+}
+
+.doctorsBtn{
+    align-self: flex-end;
+    text-decoration: none;
+    margin: 1.5rem;
+    padding: .6rem .5rem;
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+.doctorsBtn:hover{
+    transform: scale(1.03);
+    transition: all .3s ease;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .doctorsSlider {
+    padding: 1rem;
+    padding-bottom: 3rem;
+  }
+  .nextArrow {
+    bottom: -7rem;
+  }
+
+  .prevArrow {
+    bottom: -7rem;
+  }
+}

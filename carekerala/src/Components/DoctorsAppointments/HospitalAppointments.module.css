@@ -1,0 +1,117 @@
+.appointmentDiv {
+  padding: 3rem 6rem;
+  position: relative;
+}
+
+.appointmentDiv h2 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+.appointmentCard {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  width: 100%;
+  margin-bottom: 1rem;
+  background-color: rgb(228, 226, 226);
+  padding: 0.8rem 1rem;
+}
+
+.appointmentCard h4{
+    align-self: center;
+}
+
+.appointmentCard div {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.appointmentCard img {
+  max-width: 3rem;
+}
+
+.hSheetBg{
+  position: fixed;
+  background-color: var(--color-black);
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 70%;
+  z-index: 99;
+}
+
+.hSheet{
+  position: fixed;
+  top: 10%;
+  left: 5%;
+  right: 5%;
+  overflow: auto;
+  height: 90vh;
+  z-index: 100;
+}
+
+.disableScroll {
+  overflow: hidden;
+}
+
+.closeBtn{
+  position: fixed;
+  top: 3%;
+  right: 3%;
+  background-color: transparent;
+}
+
+.spanRed {
+  color: var(--btn-red);
+}
+
+.spanGreen {
+  color: var(--primary-color-light);
+}
+
+.date {
+  font-weight: 600;
+}
+
+.btnRed {
+  align-self: flex-end;
+  color: var(--btn-red);
+  border: 1px solid var(--btn-red);
+  font-size: 0.8rem;
+}
+
+.btnRed:hover {
+  color: var(--text-white);
+  background-color: var(--btn-red);
+  border: 1px solid var(--btn-red);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btnGreen {
+    align-self: center;
+    background-color:var(--primary-color-dark);
+    color: var(--text-white);
+    padding: 0.4rem 1.5rem;
+    font-weight: 600;
+    border: 2px solid var(--primary-color-dark);
+  }
+  
+  .btnGreen:hover {
+    transform: scale(1.03);
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  @media screen and (max-width: 768px){
+    .appointmentDiv{
+      padding: 2rem;
+    }
+    .appointmentCard{
+      flex-direction: column;
+    }
+  }

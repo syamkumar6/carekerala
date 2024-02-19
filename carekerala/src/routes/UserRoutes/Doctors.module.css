@@ -1,0 +1,185 @@
+@import url('../../index.css');
+
+.sectionHeader {
+  height: 13rem;
+  padding: 3rem 6rem;
+  background-image: url("../../assets/headerBg.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.flexRow2{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgb(212, 211, 211);
+  padding-bottom: 1rem;
+}
+
+.searchDiv{
+  display: flex;
+  align-items: center;
+  background-color: rgb(243, 243, 243);
+  max-height: 4rem;
+  overflow: hidden;
+}
+
+.searchDiv input{
+  background-color: transparent;
+  width: 20rem;
+  padding: 1rem;
+  margin: 0;
+}
+
+.searchDiv button{
+  background-color: var(--primary-color);
+  color: var(--text-white);
+  font-weight: bold;
+  padding: 2rem;
+  margin: 0;
+  border: none;
+}
+
+.sectionHeader h2 {
+  font-family: var(--heading-font-family);
+  font-size: 3rem;
+}
+.sectionHeader p{
+  font-family: var(--paragraph-font-family);
+  font-size: 1.1rem;
+}
+
+.flexRow {
+  display: flex;
+  gap: 2rem;
+  background-color: var(--background-color);
+}
+
+.sectionSidebar {
+  width: 20%;
+  height: 100%;
+  padding: 1rem 2rem;
+  background-color: var(--background-color);
+}
+
+.contentDiv {
+  flex: 1;
+  padding: 2rem 1rem ;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-left: 1px solid rgb(192, 191, 191);
+  background-color: var(--background-color);
+}
+
+.doctorCard {
+  text-decoration: none;
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  max-width: 55rem;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid rgb(192, 191, 191);
+  background-color: var(--background-color);
+  color: rgb(90, 90, 90);
+  margin-bottom: 2rem;
+}
+
+.doctorCard h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-color-light);
+}
+
+.doctorCard img {
+  width: 100%;
+  width: 13rem;
+  height: 17rem;
+  object-fit: cover;
+  object-position: center;
+}
+
+.cardCol {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.cardDetails {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  width: 100%;
+}
+
+.cardDetails span {
+  font-weight: 480;
+}
+
+.innerDiv {
+  text-align: right;
+}
+
+.cardBtn img {
+  max-width: 2rem;
+  max-height: 2rem;
+  object-fit: cover;
+  object-position: center;
+}
+
+.cardBtn {
+  align-self: flex-end;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color:var(--primary-color-light);
+  border: 1px solid var(--primary-color-light);
+  border-radius: 5px;
+  padding: 0.5rem;
+  padding-right: 1rem;
+  margin-top: 1.5rem;
+}
+
+.cardBtn:hover{
+    transform: scale(1.03);
+    transition: all .3s ease;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px){
+  .flexRow2{
+    flex-direction: column;
+  }
+  .searchDiv input{
+    width: 10rem;
+    padding: .5rem;
+  }
+
+  .searchDiv button{
+    padding: .5rem;
+  }
+
+  .sectionHeader p{
+    display: none;
+  }
+  .sectionSidebar{
+    display: none;
+  }
+  .doctorCard{
+    flex-direction: column;
+  }
+  .hide{
+    display: none;
+  }
+  .cardDetails{
+    flex-direction: column;
+  }
+  .innerDiv{
+    text-align: left;
+  }
+}

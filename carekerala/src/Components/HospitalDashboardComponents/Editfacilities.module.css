@@ -1,0 +1,118 @@
+.facilityDiv {
+  margin-top: 1rem;
+  padding: 2rem 4.5rem;
+  background-color: var(--background-color);
+}
+
+.headerDiv{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.headerDiv h4{
+  font-size: 2.5rem;
+}
+
+
+.flexCol {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.flexCol input{
+  border: 1px solid gray;
+}
+
+.flexCol2 {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  border-bottom: 1px solid rgb(219, 219, 219);
+  margin-bottom: 1rem;
+}
+
+textarea{
+    padding: 1rem ;
+}
+
+.btnDiv{
+    align-self: flex-end;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.btnDark {
+  color: var(--color-black);
+  border: 1px solid var(--color-black);
+  font-size: 0.8rem;
+  padding: .4rem .7rem;
+  font-weight: 500;
+}
+
+.btnDark:hover {
+  color: var(--text-white);
+  background-color: var(--color-black);
+  border-color: var(--color-black);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btnDark2 {
+    align-self: flex-end;
+    color: var(--color-black);
+    border: 1px solid var(--color-black);
+    font-size: 0.8rem;
+    padding: .4rem .7rem;
+    font-weight: 500;
+    margin-top: 1rem;
+  }
+  
+  .btnDark2:hover {
+    color: var(--text-white);
+    background-color: var(--color-black);
+    border-color: var(--color-black);
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .btnRed {
+    align-self: flex-start;
+    color: var(--btn-red);
+    padding: .4rem .7rem;
+    border: 1px solid var(--btn-red);
+    font-size: 0.8rem;
+  }
+  
+  .btnRed:hover {
+    color: var(--text-white);
+    background-color: var(--btn-red);
+    border: 1px solid var(--btn-red);
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+.deleteBtn {
+    align-self: flex-end;
+    background-color: var(--btn-red);
+    border: none;
+    color:var(--text-white);
+    font-size: 0.8rem;
+    padding: .4rem .7rem;
+    margin-bottom: 1rem;
+  }
+  
+  .deleteBtn:hover {
+    border: none;
+    transform: scale(1.03);
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+.emptyNote{
+    color: var(--btn-red);
+    font-size: 1.5rem;
+}

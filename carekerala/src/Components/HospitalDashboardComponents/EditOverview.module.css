@@ -1,0 +1,67 @@
+.overviewDiv{
+  padding: 3rem 4.5rem;
+  background-color: var(--background-color);
+}
+
+.overviewDiv h4{
+  font-size: 2.5rem;
+}
+
+.flexDiv{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btnDark{
+  color:var(--color-black);
+  border: 1px solid var(--color-black);
+  padding: .5rem 1rem;
+  font-size: .8rem;
+  font-weight: 500;
+}
+
+.btnDark:hover{
+  color: var(--text-white);
+  background-color: var(--color-black);
+  border-color: var(--color-black);
+  transition: all .3s ease;
+  cursor: pointer;
+}
+
+.redBtn{
+  color: var(--btn-red);
+  border: 1px solid var(--btn-red);
+  font-size: .8rem;
+}
+
+.redBtn:hover{
+  color: var(--text-white);
+  background-color: var(--btn-red);
+  border-color:var(--btn-red);
+  transition: all .3s ease;
+  cursor: pointer;
+}
+
+.overviewNote{
+  margin-top: 1.5rem;
+}
+.readBtn {
+  background-color: transparent;
+  margin-top: 1rem;
+  font-weight: bold;
+  border: none;
+  border-bottom: 1px solid;
+  transition: all 0.3s ease-in;
+}
+
+.overviewBtns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.noteRed{
+  color: var(--btn-red);
+}

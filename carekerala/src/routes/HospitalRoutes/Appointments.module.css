@@ -1,0 +1,144 @@
+.appointmentMain {
+  padding: 2rem 5rem;
+}
+
+.filterContiner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.requestsDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.requestsDiv h3 {
+  align-self: center;
+  width: fit-content;
+}
+.requestsCard {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  background-color: rgb(216, 248, 216);
+  padding: 1rem;
+}
+
+.appointmentsDiv {
+  display: flex;
+  flex-direction: column;
+}
+
+.appointmentsDiv h2 {
+  align-self: center;
+}
+
+.flexCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.btnDiv {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.btnRed {
+  background-color: var(--text-white);
+  border: 1px solid var(--btn-red);
+  color: var(--btn-red);
+  font-size: 0.8rem;
+  padding: 0 2rem;
+}
+
+.btnRed:hover {
+  color: var(--text-white);
+  background-color: var(--btn-red);
+  border-color: var(--btn-red);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btnGreen {
+  padding: 0.8rem;
+  border-radius: 5px;
+  border: none;
+  font-size: 0.8rem;
+  background-color: var(--text-white);
+  color: var(--primary-color-light);
+  border: 1px solid var(--primary-color-light);
+}
+
+.btnGreen:hover {
+  transform: scale(1.03);
+  background-color: var(--primary-color-light);
+  color: var(--text-white);
+  transition: all 0.3s ease;
+}
+
+.appointmentContainer {
+  padding: 3rem 5rem;
+}
+
+.accBtn {
+  background-color: transparent;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 1rem;
+  border: none;
+  border-bottom: 1px solid rgb(175, 190, 146);
+  margin-bottom: 0.5rem;
+}
+
+.activeAccordion {
+  background-color: rgb(55, 80, 55);
+  color: var(--text-white);
+}
+
+.accdescripton {
+  padding: 1rem;
+  font-size: 1.2rem;
+  background-color: rgb(227, 250, 228);
+}
+
+.appointmentItems {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(216, 248, 216);
+  padding: 1rem;
+  margin: 1rem 0;
+}
+.appointmentItems button {
+  padding: 0.5rem 1rem;
+}
+
+.btnCall {
+  align-self: flex-start;
+  background-color: var(--primary-color-dark);
+  color: var(--text-white);
+  padding: 0.2rem 1.5rem;
+  font-weight: 600;
+  border: 2px solid var(--primary-color-dark);
+}
+
+.btnCall:hover {
+  transform: scale(1.03);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.emptyNote{
+    color: var(--btn-red);
+    align-self: center;
+}

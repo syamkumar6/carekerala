@@ -1,0 +1,40 @@
+.cardBody{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    margin: .8rem;
+    background-color: rgb(11, 27, 11);
+    color: var(--text-white);
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    padding: .7rem .9rem;
+}
+
+.cardBody:hover{
+    transform: scale(1.03);
+    transition: all .3s ease;
+    cursor: pointer;
+}
+
+.DrImg{
+    width: 100%;
+    max-width: 18rem;
+    height: 19rem;
+    object-fit:cover;
+    object-position: center;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.cardDetails{
+    display: flex;
+    flex-direction: column;
+    padding: .6rem;
+    min-height: 6.5rem;
+}
+
+.cardLink{
+    text-decoration: none;
+}

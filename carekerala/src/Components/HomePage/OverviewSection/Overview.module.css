@@ -1,0 +1,125 @@
+.overviewText p {
+  font-family: var(--paragraph-font-family);
+  font-weight: 400;
+  font-size: 1.1rem;
+}
+
+.overviewText h2 {
+  font-family: var(--heading-font-family);
+  font-size: 3rem;
+}
+
+.posterDiv {
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: row;
+}
+.PosterImg {
+  width: 100%;
+  max-width: 46rem;
+  height: 100%;
+}
+.sideDiv {
+  background-color: var(--background-color);
+  color: rgb(51, 51, 51);
+  font-family: var(--heading-font-family);
+  border: 1px solid var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 2rem 1.7rem;
+  padding-bottom: 0;
+}
+.sideDivH2 {
+  font-weight: bold;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid gray;
+}
+.sideDivP {
+  font-weight: bold;
+}
+.sideDivBtn {
+  text-decoration: none;
+  align-self: start;
+  padding: 0.8rem;
+  border-radius: 5px;
+  border: none;
+  font-weight: bold;
+  background-color: var(--primary-color);
+  color: var(--text-white);
+  border: 1px solid var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+.sideDivBtn:hover {
+  transform: scale(1.03);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.sideDivSpan {
+  background-color: var(--primary-color);
+  color: var(--text-white);
+  padding: 0.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  margin-bottom: 0.5rem;
+}
+.socialMediaIcons {
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.3rem;
+}
+.socialMediaIcons img {
+  width: 32px;
+  padding: 0.3rem;
+}
+.socialMediaIcons img:hover {
+  border: 1px solid var(--primary-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.ratingsDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 3rem 0;
+}
+
+.ratingsInnerDiv {
+  display: flex;
+  gap: 1.5rem;
+}
+.ratingsInnerDiv img {
+  width: 100%;
+  max-width: 7rem;
+  object-fit: contain;
+  object-position: center;
+}
+
+.ratingNote {
+  width: 100%;
+  max-width: 25rem;
+}
+.ratingNote h3 {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+.ratingNote span {
+  padding: 1rem 0;
+  font-size: larger;
+  color: rgb(74, 75, 74);
+  font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+  .overviewHide {
+    display: none;
+  }
+  .PosterImg {
+    display: none;
+  }
+  .ratingsDiv {
+    flex-direction: column;
+  }
+}

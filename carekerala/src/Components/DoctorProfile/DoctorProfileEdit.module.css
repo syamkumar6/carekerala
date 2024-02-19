@@ -1,0 +1,365 @@
+.editingContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 3rem 5rem;
+  padding-top: 1rem;
+  background-color: rgb(212, 212, 212);
+  
+}
+
+.editingContainer h1{
+  align-self: center;
+  margin-bottom: 2rem;
+}
+
+.flexCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.flexRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 3rem;
+  width: 100%;
+}
+
+.flexRowBottom{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.imgContainer {
+  background-color: var(--text-white);
+  max-width: 18rem;
+  height: 18rem;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.imgContainer img {
+  max-width: 18rem;
+  height: 18rem;
+  object-fit: cover;
+  object-position: center;
+}
+
+.editingContainer input {
+  border: 1px solid rgb(170, 170, 170);
+  border-radius: 5px;
+  margin-top: 0.5rem;
+}
+
+.editingContainer textarea {
+  border: 1px solid rgb(170, 170, 170);
+  border-radius: 5px;
+  margin-top: 0.5rem;
+  outline: none;
+  padding: 0.5rem;
+}
+
+
+.topBtn {
+  color: var(--color-black);
+  border: 1px solid rgb(31, 30, 30);
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  align-self: flex-end;
+  margin-top: 1rem;
+}
+
+.topBtn:hover {
+  color: var(--text-white);
+  background-color: var(--color-black);
+  border-color: var(--color-black);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.doctorImg {
+  width: 5rem;
+  height: 5rem;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+}
+
+.btnSpan {
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btnSpan img {
+  max-width: 2rem;
+}
+
+.doctorImg2 {
+  max-width: 12rem;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+}
+
+.editImgDiv {
+  display: flex;
+  margin: 1rem 0;
+}
+
+.bottomBtnContainer {
+  align-self: flex-end;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.bottomBtnContainer div {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.btnDarkSelf{
+  align-self: flex-start;
+  color: var(--color-black);
+  border: 1px solid rgb(31, 30, 30);
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.btnDarkSelf:hover {
+    color: var(--text-white);
+    background-color: var(--color-black);
+    border-color: var(--color-black);
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+.btnDark {
+  color: var(--color-black);
+  border: 1px solid rgb(31, 30, 30);
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.btnDark:hover {
+  color: var(--text-white);
+  background-color: var(--color-black);
+  border-color: var(--color-black);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.redBtnSelf {
+  align-self: flex-start;
+  color:var(--btn-red);
+  border: 1px solid var(--btn-red);
+  font-size: 0.8rem;
+  padding: .3rem .6rem;
+}
+
+.redBtnSelf:hover {
+  color: var(--text-white);
+  background-color: var(--btn-red);
+  border-color: var(--btn-red);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.redBtn {
+  color: var(--btn-red);
+  border: 1px solid var(--btn-red);
+  font-size: 0.8rem;
+  padding: .5rem 1rem;
+}
+
+.redBtn:hover {
+  color: var(--text-white);
+  background-color: var(--btn-red);
+  border-color:var(--btn-red);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.deleteBtn {
+  background-color: var(--btn-red);
+  border: none;
+  color: var(--text-white);
+  font-size: 0.8rem;
+}
+
+.deleteBtn:hover {
+  border: none;
+  transform: scale(1.03);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btnGreen {
+  background-color: var(--primary-color-dark);
+  color: var(--text-white);
+  padding: 1rem 2rem;
+  font-weight: 600;
+  border: none;
+}
+
+.btnGreen:hover {
+  transform: scale(1.03);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.formContainer {
+  background-color: rgb(233, 230, 230);
+  display: flex;
+  flex-direction: column;
+  padding: 3rem 4rem;
+}
+
+.headerDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgb(187, 184, 184);
+  margin-bottom: 3rem;
+}
+
+.headerDiv h3 {
+  font-size: 3rem;
+}
+
+.formContainer p {
+  color: var(--btn-red);
+}
+
+.formContainer textarea {
+  outline: none;
+  border-radius: 5px;
+  padding: 1rem;
+  margin: 1rem 0;
+  border: none;
+}
+
+.rowDiv {
+  display: flex;
+  justify-content: space-around;
+  gap: 4rem;
+}
+
+.imgContainer {
+  background-color: var(--text-white);
+  max-width: 18rem;
+  height: 18rem;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.imgContainer button {
+  display: flex;
+  flex-direction: column;
+}
+
+.imgContainer button img {
+  width: 4rem;
+  height: auto;
+}
+
+.imgChangeBtn {
+  align-self: flex-start;
+  color: var(--btn-red);
+  border: 1px solid var(--btn-red);
+  font-size: 0.8rem;
+}
+
+.imgChangeBtn:hover {
+  color: var(--text-white);
+  background-color: var(--btn-red);
+  border: 1px solid var(--btn-red);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.rowDiv div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.rowDiv div input {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.btnSubmit {
+  align-self: flex-end;
+  color: var(--color-black);
+  border: 1px solid rgb(31, 30, 30);
+  padding: 1rem 2rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.btnSubmit:hover {
+  color: var(--text-white);
+  background-color: var(--color-black);
+  border-color: var(--color-black);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.emptySection{
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.emptySection div{
+  height: 50%;
+  width: 40%;
+  border: 2px solid var(--primary-color-light);
+  border-radius: 7px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.emptySection h2{
+  margin-top: -2rem;
+  margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 768px){
+  .editingContainer{
+    padding: 1rem;
+  }
+  .flexRow{
+    flex-direction: column;
+
+  }
+}

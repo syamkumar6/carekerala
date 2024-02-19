@@ -1,0 +1,91 @@
+.editingContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.profileDiv {
+  padding: 3rem 4.5rem;
+  border-bottom: 1px solid rgb(207, 206, 206);
+}
+
+.flexRow {
+  display: flex;
+  gap: 3rem;
+}
+
+.flexCol {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.profileImg {
+  width: 17rem;
+  height: 15rem;
+  margin-top: 1rem;
+  object-fit: cover;
+  object-position: center;
+}
+
+.btnDark {
+  align-self: flex-start;
+  background-color: var(--color-black);
+  color: var(--color-black);
+  padding: 0.5rem 1.5rem;
+}
+
+.btnDark:hover {
+  transform: scale(1.01);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btnDark2 {
+  align-self: flex-start;
+  padding: 0.5rem 1rem;
+}
+
+.btnDark2:hover {
+  background-color: var(--color-black);
+  color: var(--text-white);
+  transform: scale(1.01);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btnRed {
+  color: var(--btn-red);
+  padding: .5rem .8rem;
+  border: 1px solid var(--btn-red);
+}
+
+.btnRed:hover {
+  color: var(--text-white);
+  background-color: var(--btn-red);
+  border: 1px solid var(--btn-red);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btnRed2 {
+  align-self: flex-start;
+  color: var(--btn-red);
+  padding: .5rem .8rem;
+  border: 1px solid var(--btn-red);
+}
+
+.btnRed2:hover {
+  color: var(--text-white);
+  background-color: var(--btn-red);
+  border: 1px solid var(--btn-red);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.bottomBtnContainer {
+  align-self: flex-end;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
