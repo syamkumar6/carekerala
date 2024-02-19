@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import axios from "axios";
-import styles from "./appointmentsRequests.module.css";
+import styles from "./AppointmentsRequests.module.css";
 import toast from "react-hot-toast";
 import callIcon from "../../assets/callIcon.svg";
 
