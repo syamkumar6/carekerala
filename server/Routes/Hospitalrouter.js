@@ -7,8 +7,17 @@ const jwt = require('jsonwebtoken');
 router.get('/', async(req, res, next) => {
   try{
     const hospitals = await Hospital.find({ isVisible: true })
-    console.log('Response size:', JSON.stringify(hospitals).length);
-    res.status(200).json(hospitals)
+    const serializedHospitals = hospitals.map(hospital => ({
+      _id: hospital._id,
+      name: hospital.name,
+      district: hospital.district,
+      image: hospital.image,
+      address: hospital.address,
+      description: hospital.description,
+      phone: hospital.phone
+}));
+    console.log('Response size:', JSON.stringify(serializedHospitals).length);
+    res.status(200).json(serializedHospitals)
   }catch(err){
     console.log(err)
     res.status(500).send("Server Error")
