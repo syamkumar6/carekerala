@@ -216,7 +216,7 @@
 
 .reviewForm button {
   background-color: rgb(27, 27, 27);
-  color: var(--color-black);
+  color: var(--text-white);
   font-weight: bold;
   margin-top: 0.5rem;
   margin-left: 0.3rem;
