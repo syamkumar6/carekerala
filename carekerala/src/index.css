@@ -43,3 +43,6 @@
 main{
   background-color: var(--background-color);
 }
+input[type="checkbox" i] {
+    background-color: transparent;
+}
