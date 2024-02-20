@@ -58,7 +58,7 @@ function DoctorProfile() {
         console.log(res.data.status);
         dispatch(addUserAuth(false));
         dispatch(addAuthDetails(null));
-        navigate("/");
+        navigate("/users/login");
       })
       .catch((err) => {
         console.log(err);
