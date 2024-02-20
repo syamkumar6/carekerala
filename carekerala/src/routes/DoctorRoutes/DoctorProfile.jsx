@@ -50,9 +50,9 @@ function DoctorProfile() {
     });
   }, []);
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
     axios.defaults.withCredentials = true;
-    axios
+    await axios
       .post(`${baseURL}/users/logout`)
       .then((res) => {
         console.log(res.data.status);
