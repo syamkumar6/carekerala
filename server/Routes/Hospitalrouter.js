@@ -7,6 +7,7 @@ const jwt = require('jsonwebtoken');
 router.get('/', async(req, res, next) => {
   try{
     const hospitals = await Hospital.find({ isVisible: true }).populate('doctors')
+    console.log('Response size:', JSON.stringify(hospitals).length);
     res.status(200).json(hospitals)
   }catch(err){
     console.log(err)
