@@ -123,9 +123,10 @@ router.get("/"), VerifyAdmin, async (req, res) => {
     }
 }
 
-router.post('/logout',Verify, (req, res) => {
-    res.clearCookie('usertoken');
-    res.json({ status: 'success', message: 'Logout successful' });
+router.post('/logout', Verify, (req, res) => {
+      res.cookie('token',"",{expiresIn:new Date(0)})
+      return res.status(200).json({ Status: "Success" });
+ 
 });
 
 
