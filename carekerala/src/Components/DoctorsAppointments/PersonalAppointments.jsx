@@ -2,27 +2,31 @@
 import { useState } from "react";
 import styles from "./PersonalAppointments.module.css";
 import axios from "axios";
-import toast from "react-hot-toast";
 import closeIcon from "../../assets/closeIcon2.svg";
 import callIcon from "../../assets/callIcon.svg";
 import sheetIcon from "../../assets/sheetIcon.svg";
 import UpdateSheet from "./UpdateSheet";
+import PulseLoader from "react-spinners/PulseLoader";
+
 
 function PersonalAppointments({ appointments, user, setAppointmentsData }) {
   const baseURL = import.meta.env.VITE_BASE_URL;
   const [data, setData] = useState();
   const [open, setOpen] = useState(false);
+  const [loadingId, setLoadingId] = useState(null);
 
   const handleDeleteAppointment = (appointmentId) => {
+    setLoadingId(appointmentId)
     const userId = user._id;
     axios.defaults.withCredentials = true;
     axios.delete(`${baseURL}/appointments/doctors/` + userId + `/` + appointmentId)
       .then((res) => {
         setAppointmentsData(res.data.appointments);
-        toast.success(res.data.message);
+        setLoadingId(null)
       })
       .catch((error) => {
         console.error("Error deleting appointment:", error);
+        setLoadingId(null)
       });
   };
 
@@ -62,15 +66,6 @@ function PersonalAppointments({ appointments, user, setAppointmentsData }) {
                       <span className={styles.date}>
                         Date: {d.date} {d.time ? `/ ${formatTime(d.time)}` : ""}
                       </span>
-                      <div className={styles.divCenter}>
-                        {d.isApproved === false ? (
-                          <span className={styles.spanRed}>
-                            Waiting for approval
-                          </span>
-                        ) : (
-                          <span className={styles.spanGreen}>Approved</span>
-                        )}
-                      </div>
                     </div>
                     <div className={styles.btnDiv}>
                       <button
@@ -101,7 +96,11 @@ function PersonalAppointments({ appointments, user, setAppointmentsData }) {
                         onClick={() => handleDeleteAppointment(d._id)}
                         className={styles.btnRed}
                       >
-                        Cancel Appointment
+                        {loadingId === d._id ? (
+                        <PulseLoader size={7} color={"rgb(236, 236, 236)"} />
+                      ) : (
+                        "Close"
+                      )}
                       </button>
                     </div>
                   </li>

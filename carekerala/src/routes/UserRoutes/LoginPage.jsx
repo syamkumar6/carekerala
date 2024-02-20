@@ -7,6 +7,7 @@ import { addAuthDetails, addUserAuth } from "../../Redux/Features/AuthSlice";
 import { useDispatch} from "react-redux";
 import { useState } from "react";
 import toast from "react-hot-toast";
+import PulseLoader from "react-spinners/PulseLoader";
 
 const initialValues = {
   email: "",
@@ -20,6 +21,7 @@ const SignInSchema = Yup.object({
 function LoginPage() {
   const baseURL = import.meta.env.VITE_BASE_URL;
   const [doctor, setDoctor] = useState(false);
+  const [loading, setLoading] = useState(false)
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -27,6 +29,7 @@ function LoginPage() {
     initialValues,
     validationSchema: SignInSchema,
     onSubmit: (values) => {
+      setLoading(true)
       const apiEndpoint = doctor
         ? `${baseURL}/doctors/login`
         : `${baseURL}/users/login`;
@@ -41,6 +44,7 @@ function LoginPage() {
         })
         .catch((err) => {
           toast.error(err.response.data.Message);
+          setLoading(false)
           console.log(err);
           Formik.resetForm();
         });
@@ -95,7 +99,9 @@ function LoginPage() {
             <input type="radio" id="role" onClick={() => setDoctor(true)} />
           </div>
 
-          <button type="submit">login</button>
+          <button type="submit" >
+            {loading ? 
+            <PulseLoader size={7}   color={'rgb(236, 236, 236)'} /> : 'Login'}</button>
         </form>
         <div className={styles.bottomDiv}>
           <span>or </span>

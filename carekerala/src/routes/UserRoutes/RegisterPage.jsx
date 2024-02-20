@@ -5,6 +5,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import toast from "react-hot-toast";
+import PulseLoader from "react-spinners/PulseLoader";
 
 const signUpSchema = Yup.object({
   name: Yup.string().min(2).max(25).required("Please Enter Name"),
@@ -23,6 +24,7 @@ const initialValues = {
 
 function SignupPage() {
   const [doctor, setDoctor] = useState(false)
+  const [loading, setLoading] = useState(false)
   const baseURL = import.meta.env.VITE_BASE_URL;
   const navigate = useNavigate();
 
@@ -30,11 +32,15 @@ function SignupPage() {
     initialValues: initialValues,
     validationSchema: signUpSchema,
     onSubmit: (values) => {
+      setLoading(true)
       const apiEndpoint = doctor ? `${baseURL}/doctors/sign-up` : `${baseURL}/users/sign-up`;
       axios.post(apiEndpoint, { values }).then((res) => {
         if (res.data.message === "Successfully registered") {
           toast.success(res.data.message)
           navigate("/users/login");
+        }else{
+          toast.error("Please try again")
+          setLoading(false)
         }
       });
     },
@@ -126,7 +132,9 @@ function SignupPage() {
       <input type="radio" id="role" onClick={() => setDoctor(true)}/>
       </div>
 
-        <button type="submit">Signup</button>
+        <button type="submit">
+        {loading ?  <PulseLoader size={7}   color={'rgb(236, 236, 236)'} /> : 'Register'}
+        </button>
 
         <div className={styles.bottomDiv}>
         <span>Already have an account ?</span>

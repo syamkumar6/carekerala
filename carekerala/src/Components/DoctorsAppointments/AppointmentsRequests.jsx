@@ -3,11 +3,15 @@ import axios from "axios";
 import styles from "./AppointmentsRequests.module.css";
 import toast from "react-hot-toast";
 import callIcon from "../../assets/callIcon.svg";
+import PulseLoader from "react-spinners/PulseLoader";
+import { useState } from "react";
 
-function appointmentsRequests({ appointments, user, setAppointmentsData }) {
+function AppointmentsRequests({ appointments, user, setAppointmentsData }) {
   const baseURL = import.meta.env.VITE_BASE_URL;
+  const [loadingId, setLoadingId] = useState(null);
 
   const handleApprove = async (appointmentId, time) => {
+    setLoadingId(appointmentId)
     try {
       console.log(time);
       axios.defaults.withCredentials = true;
@@ -17,9 +21,11 @@ function appointmentsRequests({ appointments, user, setAppointmentsData }) {
       );
 
       setAppointmentsData(res.data.appointments);
+      setLoadingId(null)
       toast.success("Appointment Approved");
     } catch (error) {
       console.error("Error approving appointment:", error);
+      setLoadingId(null)
     }
   };
 
@@ -74,7 +80,7 @@ function appointmentsRequests({ appointments, user, setAppointmentsData }) {
                           onClick={() => handleReject(d._id)}
                           className={styles.btnRed}
                         >
-                          Reject
+                        Reject
                         </button>
                         <button
                           onClick={() => {
@@ -92,7 +98,11 @@ function appointmentsRequests({ appointments, user, setAppointmentsData }) {
                           }}
                           className={styles.btnGreen}
                         >
-                          Approve
+                          {loadingId === d._id ? (
+                        <PulseLoader size={7} color={"rgb(236, 236, 236)"} />
+                      ) : (
+                        "Approve"
+                      )}
                         </button>
                       </div>
                     </div>
@@ -109,4 +119,4 @@ function appointmentsRequests({ appointments, user, setAppointmentsData }) {
   );
 }
 
-export default appointmentsRequests;
+export default AppointmentsRequests;

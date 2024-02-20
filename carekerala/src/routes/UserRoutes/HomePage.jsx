@@ -34,6 +34,7 @@ function HomePage() {
   const hospitalOptions = hospitals.map((h) => ({id:h._id, name:h.name}))
   const doctorOptions = doctors.map((doctor) => ({id:doctor._id, name:doctor.name}))
 
+
   const handleSelectedHospital = () =>{
     const selectedOptionId = document.getElementById("hospital-name").value;
     const selectedHospital = hospitalOptions.find(option => option.name === selectedOptionId);
@@ -66,62 +67,62 @@ function HomePage() {
       };
   return (
     <main>
-      <section className={styles.topSection}>
-        <HomeCarousel />
-        <div className={styles.searchFields}>
-        <div className={styles.searchDiv}>
-        <input 
-        type="text" 
-        id="hospital-name" 
-        list="hospital-list"
-        placeholder="Search Hospitals" 
-        value={hospitalValue} //
-        onChange={(e) => setHospitalValue(e.target.value)}
+   <section className={styles.topSection}>
+    <HomeCarousel />
+    <div className={styles.searchFields}>
+    <div className={styles.searchDiv}>
+    <input 
+    type="text" 
+    id="hospital-name" 
+    list="hospital-list"
+    placeholder="Search Hospitals" 
+    value={hospitalValue} //
+    onChange={(e) => setHospitalValue(e.target.value)}
+    />
+    <datalist id="hospital-list">
+      {hospitalOptions.map((option) => (
+        <option key={option.id} value={option.name} data-id={option.id}/>
+      ))}
+    </datalist>
+    <button onClick={handleSelectedHospital}>Search <img src={arrow} alt="" /></button>
+  </div>
+    <div className={styles.searchDiv}>
+        <input
+          type="text"
+          id="doctor-name"
+          list="doctor-list"
+          placeholder="Search Doctors"
+          value={doctorValue}
+          onChange={(e) => setDoctorValue(e.target.value)}
         />
-        <datalist id="hospital-list">
-          {hospitalOptions.map((option) => (
-            <option key={option.id} value={option.name} data-id={option.id}/>
+        <datalist id="doctor-list">
+          {doctorOptions.map((option) => (
+            <option
+              key={option.id}
+              value={option.name}
+              data-id={option.id}
+            />
           ))}
         </datalist>
-        <button onClick={handleSelectedHospital}>Search <img src={arrow} alt="" /></button>
+        <button onClick={handleSelectedDoctor}>Search <img src={arrow} alt="" /></button>
       </div>
-        <div className={styles.searchDiv}>
-            <input
-              type="text"
-              id="doctor-name"
-              list="doctor-list"
-              placeholder="Search Doctors"
-              value={doctorValue}
-              onChange={(e) => setDoctorValue(e.target.value)}
-            />
-            <datalist id="doctor-list">
-              {doctorOptions.map((option) => (
-                <option
-                  key={option.id}
-                  value={option.name}
-                  data-id={option.id}
-                />
-              ))}
-            </datalist>
-            <button onClick={handleSelectedDoctor}>Search <img src={arrow} alt="" /></button>
-          </div>
-        </div>
-        <div className={styles.contactBtn}>
-          <button onClick={initiateCall}><img src={callIcon} alt="" /></button>
-        </div>
-      </section>
+    </div>
+    <div className={styles.contactBtn}>
+      <button onClick={initiateCall}><img src={callIcon} alt="" /></button>
+    </div>
+  </section>
 
-      <section className={styles.overviewSection}>
-        <Overview />
-      </section>
+  <section className={styles.overviewSection}>
+    <Overview />
+  </section>
 
-      <section>
-        <Hospitels hospitals={hospitals} />
-      </section>
+  <section>
+    <Hospitels hospitals={hospitals} />
+  </section>
 
-      <section>
-        <Doctors doctors={doctors}/>
-      </section>
+  <section>
+    <Doctors doctors={doctors}/>
+  </section>
     </main>
   );
 }

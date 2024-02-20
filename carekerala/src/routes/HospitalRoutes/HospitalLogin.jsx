@@ -4,10 +4,11 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { addHospitalAuth, addAuthDetails } from "../../Redux/Features/AuthSlice";
 import { useDispatch } from "react-redux";
 import toast from "react-hot-toast";
+import PulseLoader from "react-spinners/PulseLoader";
 
 const initialValues = {
   email: "",
@@ -20,6 +21,7 @@ const SignInSchema = Yup.object({
 
 function HospitalLogin() {
   const baseURL = import.meta.env.VITE_BASE_URL;
+  const [loading, setLoading] = useState(false)
   const dispatch = useDispatch()
   const navigate = useNavigate();
 
@@ -43,6 +45,7 @@ function HospitalLogin() {
     initialValues,
     validationSchema: SignInSchema,
     onSubmit: (values) => {
+      setLoading(true)
       axios.defaults.withCredentials = true;
       axios
         .post(`${baseURL}/hospitals/dashboard/login`, { values }, { timeout: 15000 })
@@ -55,6 +58,7 @@ function HospitalLogin() {
         })
         .catch((err) => {
           toast.error(err.response.data.Message)
+          setLoading(false)
           console.log(err);
           Formik.resetForm()
         });
@@ -99,7 +103,7 @@ function HospitalLogin() {
             <p>{Formik.errors.password}</p>
           ) : null}
         </div>
-          <button type="submit">login</button>
+          <button type="submit">{loading ?  <PulseLoader size={7}   color={'rgb(236, 236, 236)'} /> : 'login'}</button>
           <div className={styles.bottomDiv}>
           <span>Or</span>
           <Link to={"/hospitals/register"} className={styles.link}>Register</Link>

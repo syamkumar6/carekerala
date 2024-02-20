@@ -8,6 +8,7 @@ import locationIcon from "../../assets/locationIcon2.svg";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { addUserAuth, addAuthDetails } from "../../Redux/Features/AuthSlice";
+import PulseLoader from "react-spinners/PulseLoader";
 
 export async function loader({ params }) {
   axios.defaults.withCredentials = true;
@@ -18,6 +19,7 @@ export async function loader({ params }) {
 
 function UserProfile() {
   const { appointmentsData } = useLoaderData();
+  const [loading, setLoading] = useState(false)
   const [appointments, setAppointments] = useState(appointmentsData);
   const baseURL = import.meta.env.VITE_BASE_URL;
   const dispatch = useDispatch();
@@ -37,29 +39,35 @@ function UserProfile() {
   }, []);
 
   const handleDeleteAppointment = (appointmentId) => {
+    setLoading(true)
     const userId = user.id;
     axios.defaults.withCredentials = true;
     axios.delete(`${baseURL}/appointments/` + userId + `/` + appointmentId)
       .then((res) => {
         setAppointments(res.data.appointments);
+        setLoading(false)
         toast.success(res.data.message);
       })
       .catch((error) => {
+        setLoading(false)
         console.error("Error deleting appointment:", error);
       });
   };
 
   const handlePermission = (appointmentId) => {
     try {
+      setLoading(true)
       const userId = user.id;
       axios.defaults.withCredentials = true;
       axios.post(`${baseURL}/appointments/permission/` + userId + `/` + appointmentId)
         .then((res) => {
           setAppointments(res.data.appointments);
+          setLoading(false)
           toast.success(res.data.message);
         })
         .catch((error) => {
           toast.error(error.response.data.message);
+          setLoading(false)
           console.error(error);
         });
     } catch (err) {
@@ -68,6 +76,7 @@ function UserProfile() {
   };
 
   const handleLogout = () => {
+    setLoading(true)
     axios.defaults.withCredentials = true;
     axios.post(`${baseURL}/users/logout`)
       .then((res) => {
@@ -126,14 +135,14 @@ function UserProfile() {
                             onClick={() => handlePermission(d._id)}
                             className={styles.btnGreen}
                           >
-                            Allow H-Sheet permission
+                            {loading ?  <PulseLoader size={7}   color={'rgb(236, 236, 236)'} /> : 'Allow H-Sheet permission'}
                           </button>
                         ) : (
                           <button
                             onClick={() => handlePermission(d._id)}
                             className={styles.btnRed}
                           >
-                            Cancel H-Sheet permission
+                            {loading ?  <PulseLoader size={7}   color={'rgb(236, 236, 236)'} /> : 'Cancel H-Sheet permission'}
                           </button>
                         )}
                       </div>
@@ -161,7 +170,7 @@ function UserProfile() {
                         onClick={() => handleDeleteAppointment(d._id)}
                         className={styles.btnRed2}
                       >
-                        Cancel Appointment
+                       {loading ?  <PulseLoader size={7}   color={'rgb(236, 236, 236)'} /> : 'Cancel Appointment'}
                       </button>
                     </div>
                   </li>

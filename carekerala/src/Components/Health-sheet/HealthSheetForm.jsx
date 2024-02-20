@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import styles from "./HealthSheetForm.module.css";
 import { useFormik } from "formik";
@@ -92,7 +93,6 @@ function HealthSheetForm() {
           image: editedImage,
         },
       };
-      console.log(data);
       axios.defaults.withCredentials = true;
       axios.post(`${import.meta.env.VITE_BASE_URL}/h-sheet/create/` + userId,
           data,
@@ -104,6 +104,7 @@ function HealthSheetForm() {
         )
         .then((res) => {
           if (res.data.message === "Health sheet created successfully") {
+            console.log(res.data)
               formik.resetForm();
               toast.success(res.data.message)
               window.location.reload();

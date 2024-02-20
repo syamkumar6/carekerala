@@ -71,7 +71,7 @@ function EditOverview({hospital, setHospital}) {
             ))}
         </div>
         {isEditing && (
-          <div className={styles.flexDiv}>
+          <div className={styles.flexDiv2}>
             <button onClick={handleCancel} className={styles.redBtn}>Cancel</button>
             <button onClick={handleSaveChanges} className={styles.btnDark}>Save Changes</button>
           </div>
