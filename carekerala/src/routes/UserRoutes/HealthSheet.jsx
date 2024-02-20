@@ -31,7 +31,7 @@ function HealthSheet() {
   const [isEditing, setIsEditing] = useState(false);
   const [editedImage, setEditedImage] = useState("");
   if (!hSheet) {
-    return <HealthSheetForm />;
+    return <HealthSheetForm/>;
   }
 
   useEffect(() => {

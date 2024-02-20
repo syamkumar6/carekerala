@@ -4,8 +4,10 @@ import styles from "./DoctorProfileEdit.module.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import PulseLoader from "react-spinners/PulseLoader";
 
 function DoctorProfileEdit({ doctor, setDoctor }) {
+  const [loading, setLoading] = useState(false)
   const [editedDoctor, setEditedDoctor] = useState({});
   const [isEditing, setIsEditing] = useState(false);
   const [editDrImage, setEditDrImage] = useState("");
@@ -30,6 +32,7 @@ function DoctorProfileEdit({ doctor, setDoctor }) {
 
   const handleSaveChanges = async () => {
     try {
+      setLoading(true)
       if (editDrImage) {
         editedDoctor.image = editDrImage;
       }
@@ -43,11 +46,13 @@ function DoctorProfileEdit({ doctor, setDoctor }) {
         }
       );
       setDoctor(response.data);
+      setLoading(false)
       setEditedDoctor("");
       setIsEditing(false); 
       toast.success("Details updated successfully");
     } catch (error) {
       console.error("Error updating doctor details:", error);
+      setLoading(false)
     }
   };
 
@@ -282,7 +287,7 @@ function DoctorProfileEdit({ doctor, setDoctor }) {
                   Cancel
                 </button>
                 <button onClick={handleSaveChanges} className={styles.btnDark}>
-                  Save Changes
+                {loading ?  <PulseLoader size={7}   color={'rgb(236, 236, 236)'} /> : 'Save Changes'}
                 </button>
               </div>
             </div>

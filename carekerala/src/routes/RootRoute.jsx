@@ -7,7 +7,7 @@ import Headroom from 'react-headroom';
 function RootRoute() {
   return (
     <>
-    <Headroom>
+    <Headroom style={{ zIndex: 100 }}>
       <Header/>
     </Headroom>
       <main>

@@ -3,6 +3,9 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import PulseLoader from "react-spinners/PulseLoader";
+import { useState } from "react";
+import toast from "react-hot-toast";
 
 const signUpSchema = Yup.object({
   name: Yup.string().min(2).max(25).required("Please Enter Name"),
@@ -23,15 +26,20 @@ const initialValues = {
 function HospitalRgister() {
   const baseURL = import.meta.env.VITE_BASE_URL;
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false)
 
   const Formik = useFormik({
     initialValues: initialValues,
     validationSchema: signUpSchema,
     onSubmit: async (values) => {
+      setLoading(true)
       axios.defaults.withCredentials = true;
       await axios.post(`${baseURL}/hospitals/dashboard/register`, { values }).then((res) => {
         if (res.data.Status === "Register Success") {
           navigate("/hospitals/login");
+        }else{
+          toast.error("Please try again")
+          setLoading(false)
         }
       });
     },
@@ -96,7 +104,7 @@ function HospitalRgister() {
             <p>{Formik.errors.confirmPassword}</p>
           ) : null}
 
-          <button type="submit">Send a register request</button>
+          <button type="submit">{loading ?  <PulseLoader size={7}   color={'rgb(236, 236, 236)'} /> : 'Send a register requestRegister'}</button>
         </form>
         <div className={styles.bottomDiv}>
           <span>Already have an account ?</span>

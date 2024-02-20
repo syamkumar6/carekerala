@@ -1,6 +1,8 @@
 .overviewDiv{
   padding: 3rem 4.5rem;
   background-color: var(--background-color);
+  display: flex;
+  flex-direction: column;
 }
 
 .overviewDiv h4{
@@ -11,6 +13,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.flexDiv2{
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .btnDark{
@@ -33,6 +42,7 @@
   color: var(--btn-red);
   border: 1px solid var(--btn-red);
   font-size: .8rem;
+  padding: .5rem 1rem;
 }
 
 .redBtn:hover{

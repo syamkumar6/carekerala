@@ -7,6 +7,7 @@ const multer = require('multer');
 const upload = multer({limits: {fileSize: 10 * 1024 * 1024,}});
 const bodyParser = require('body-parser');
 
+
 const app = express()
 const port = process.env.PORT || 3000
 
@@ -27,6 +28,7 @@ app.use(cors({
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 app.use(upload.single('image'));
+
 
 
 app.use("/hospitals", Hospitalrouter)

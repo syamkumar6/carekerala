@@ -6,6 +6,7 @@ import { addAuthDetails, addHospitalAuth,} from "../../Redux/Features/AuthSlice"
 import { useDispatch } from "react-redux";
 import { useLoaderData, useParams } from "react-router-dom";
 import toast from "react-hot-toast";
+import PulseLoader from "react-spinners/PulseLoader";
 
 import arrow from "../../assets/arrowDown.svg";
 import callIcon from "../../assets/callIcon.svg";
@@ -20,6 +21,7 @@ export async function loader({ params }) {
 function Appointments() {
   const { hospitalId } = useParams();
   const { appointmentsData } = useLoaderData();
+  const [loading, setLoading] = useState(false)
   const [appointments, setAppointments] = useState(appointmentsData);
   const [active, setActive] = useState("appointments");
   const [activeIndex, setActiveIndex] = useState(0);
@@ -60,6 +62,7 @@ function Appointments() {
 
   const handleApprove = async (appointmentId, time) => {
     try {
+      setLoading(true)
       axios.defaults.withCredentials = true;
       await axios.post(`${import.meta.env.VITE_BASE_URL}/appointments/approve/` + appointmentId,
         { time }
@@ -71,20 +74,25 @@ function Appointments() {
             : appointment
         )
       );
+      setLoading(false)
       toast.success("Appointment Approved")
     } catch (error) {
       console.error("Error approving appointment:", error);
+      setLoading(false)
     }
   };
 
   const handleReject = async (appointmentId) => {
+    setLoading(true)
     axios.defaults.withCredentials = true;
     try {
       const res = await axios.delete(`${import.meta.env.VITE_BASE_URL}/appointments/delete/${hospitalId}/${appointmentId}`);
       setAppointments(res.data.appointments);
       toast.success("Appointment Canceled")
+      setLoading(false)
     } catch (err) {
       console.log(err);
+      setLoading(false)
     }
   };
 
@@ -146,7 +154,7 @@ function Appointments() {
                         onClick={() => handleReject(d._id)}
                         className={styles.btnRed}
                       >
-                        Reject
+                        {loading ?  <PulseLoader size={7}   color={'rgb(236, 236, 236)'} /> : 'Reject'}
                       </button>
                       <button
                         onClick={() => {
@@ -164,7 +172,7 @@ function Appointments() {
                         }}
                         className={styles.btnGreen}
                       >
-                        Apporve
+                        {loading ?  <PulseLoader size={7}   color={'rgb(236, 236, 236)'} /> : 'Apporve'}
                       </button>
                     </div>
                   </div>
@@ -216,7 +224,7 @@ function Appointments() {
                               className={styles.btnRed}
                               onClick={() => handleReject(appointment._id)}
                             >
-                              Cancel
+                              {loading ?  <PulseLoader size={7}   color={'rgb(236, 236, 236)'} /> : 'Close'}
                             </button>
                           </li>
                         );

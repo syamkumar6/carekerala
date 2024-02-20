@@ -3,10 +3,13 @@ import styles from "./EditCarousel.module.css";
 import axios from "axios";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
+import PulseLoader from "react-spinners/PulseLoader";
 
 import addImageIcon from "../../assets/addIcon.svg";
 
 function EditCarousel({ hospital, setHospital }) {
+  const [loading, setLoading] = useState(false)
+  const [loadingId, setLoadingId] = useState(null);
   const [imagePreview, setImagePreview] = useState("");
 
 
@@ -15,7 +18,6 @@ function EditCarousel({ hospital, setHospital }) {
     fileInput.click();
     fileInput.addEventListener("change", (e) => {
       const file = e.target.files[0];
-
       const reader = new FileReader();
       reader.onloadend = () => {
         const base64Data = reader.result;
@@ -27,6 +29,7 @@ function EditCarousel({ hospital, setHospital }) {
   };
 
   const handleUpdateImage = () => {
+    setLoading(true)
     const hospitalId = hospital._id;
     axios.post(`${import.meta.env.VITE_BASE_URL}/hospitals/dashboard/add-image/` +hospitalId,
         { image: imagePreview },
@@ -38,24 +41,29 @@ function EditCarousel({ hospital, setHospital }) {
       )
       .then((res) => {
         setHospital(res.data.hospital);
+        setLoading(false)
         setImagePreview("");
         toast.success(res.data.message);
       })
       .catch((error) => {
         console.error("Error updating image:", error);
+        setLoading(false)
         toast.error("Failed to update image");
       });
   };
 
   const handleDelete = (carouselId, hospitalId) => {
+    setLoadingId(carouselId)
     axios.defaults.withCredentials = true;
     axios.delete(`${import.meta.env.VITE_BASE_URL}/hospitals/dashboard/` +hospitalId +`/` +carouselId)
       .then((res) => {
         setHospital(res.data.hospital);
+        setLoadingId(null)
         toast.success(res.data.message);
       })
       .catch((err) => {
         console.log(err);
+        setLoadingId(null)
         toast.error("Failed to delete image");
       });
   };
@@ -70,7 +78,11 @@ function EditCarousel({ hospital, setHospital }) {
               <img src={carouselItem.img} alt="" />
               <button
                 onClick={() => handleDelete(carouselItem._id, hospital._id)}>
-                Delete image
+                {loadingId === carouselItem._id ? (
+                        <PulseLoader size={5} color={"rgb(236, 236, 236)"} />
+                      ) : (
+                        "Delete"
+                      )}
               </button>
             </li>
           );
@@ -105,7 +117,7 @@ function EditCarousel({ hospital, setHospital }) {
               <button
                 className={styles.btnDark}
                 onClick={() => handleUpdateImage()}>
-                Add Image
+                {loading ?  <PulseLoader size={6}   color={'rgb(236, 236, 236)'} /> : 'Add Image'}
               </button>
             </div>
           </div>

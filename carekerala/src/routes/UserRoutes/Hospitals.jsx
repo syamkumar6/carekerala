@@ -20,6 +20,7 @@ function Hospitals() {
   const [selectedDistrict, setSelectedDistrict] = useState("All");
   const hospitalOptions = hospitals.map((h) => ({id:h._id, name:h.name}))
 
+
   const handleSelectedDoctor = () =>{
     const selectedOptionId = document.getElementById("doctor-name").value;
     const selectedHospital = hospitalOptions.find(option => option.name === selectedOptionId);
@@ -45,7 +46,7 @@ function Hospitals() {
   
   return (
     <main>
-      <div className={styles.pageHeader}>
+    <div className={styles.pageHeader}>
         <div className={styles.flexRow3}>
         <h2>Hospitals</h2>
         <div className={styles.searchDiv}>

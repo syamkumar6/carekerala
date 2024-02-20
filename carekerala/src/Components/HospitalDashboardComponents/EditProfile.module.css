@@ -31,7 +31,7 @@
 .btnDark {
   align-self: flex-start;
   background-color: var(--color-black);
-  color: var(--color-black);
+  color: var(--text-white);
   padding: 0.5rem 1.5rem;
 }
 

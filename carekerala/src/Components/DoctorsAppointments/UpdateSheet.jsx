@@ -4,12 +4,14 @@ import styles from "./UpdateSheet.module.css";
 import axios from "axios";
 import editIcon from "../../assets/editIcon.svg";
 import { useParams } from "react-router-dom";
+import PulseLoader from "react-spinners/PulseLoader";
 
 function UpdateSheet({ data }) {
   const doctor = useParams();
   console.log(doctor.userId)
   const [editSheet, setEditSheet] = useState(data.sheet);
   const [isEditing, setIsEditing] = useState(false);
+  const [loading, setLoading] = useState(false)
   const [editedDetails, setEditedDetails] = useState({
     vitalSigns: {
       bloodPressure: editSheet?.vitalSigns?.bloodPressure || "",
@@ -77,6 +79,7 @@ function UpdateSheet({ data }) {
   }, [data.userId]);
 
   const handleSubmit = async () => {
+    setLoading(true)
     try {
       if (data) {
         editedDetails.lastUpdated.doctor = doctor.userId;
@@ -102,9 +105,11 @@ function UpdateSheet({ data }) {
       );
     
       setEditSheet(res.data.hSheet);
+      setLoading(false)
       setIsEditing(false);
     } catch (err) {
       console.log(err);
+      setLoading(false)
     }
   };
 
@@ -397,7 +402,7 @@ function UpdateSheet({ data }) {
                 </div>
                 <div className={styles.btnDiv}>
                   <button onClick={handleCancel} className={styles.btnRed}>Cancel</button>
-                  <button onClick={handleSubmit} className={styles.btnGreen}>Save Changes</button>
+                  <button onClick={handleSubmit} className={styles.btnGreen}>{loading ?  <PulseLoader size={7}   color={'rgb(236, 236, 236)'} /> : 'Save Changes'}</button>
                 </div>
               </div>
             </div>

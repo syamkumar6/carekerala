@@ -3,21 +3,27 @@ import axios from "axios";
 import styles from "./BookedAppointments.module.css";
 import toast from "react-hot-toast";
 import locationIcon from "../../assets/locationIcon2.svg";
-
+import PulseLoader from "react-spinners/PulseLoader";
+import { useState } from "react";
 
 function BookedAppointments({ appointments, user, setAppointmentsData }) {
   const baseURL = import.meta.env.VITE_BASE_URL;
+  const [loadingId, setLoadingId] = useState(null);
 
   const handleDeleteAppointment = (appointmentId) => {
+    setLoadingId(appointmentId);
     const userId = user._id;
     axios.defaults.withCredentials = true;
-    axios.delete(`${baseURL}/appointments/doctors/` + userId + `/` + appointmentId)
+    axios
+      .delete(`${baseURL}/appointments/doctors/` + userId + `/` + appointmentId)
       .then((res) => {
         setAppointmentsData(res.data.appointments);
+        setLoadingId(null);
         toast.success(res.data.message);
       })
       .catch((error) => {
         console.error("Error deleting appointment:", error);
+        setLoadingId(null);
       });
   };
 
@@ -25,7 +31,10 @@ function BookedAppointments({ appointments, user, setAppointmentsData }) {
     try {
       const userId = user._id;
       axios.defaults.withCredentials = true;
-      axios.post(`${baseURL}/appointments/permission/` + userId + `/` + appointmentId)
+      axios
+        .post(
+          `${baseURL}/appointments/permission/` + userId + `/` + appointmentId
+        )
         .then((res) => {
           setAppointmentsData(res.data.appointments);
           toast.success(res.data.message);
@@ -114,7 +123,11 @@ function BookedAppointments({ appointments, user, setAppointmentsData }) {
                         onClick={() => handleDeleteAppointment(d._id)}
                         className={styles.btnRed}
                       >
-                        Cancel Appointment
+                        {loadingId === d._id ? (
+                          <PulseLoader size={7} color={"rgb(236, 236, 236)"} />
+                        ) : (
+                          "Cancel Appointment"
+                        )}
                       </button>
                     </div>
                   </li>
