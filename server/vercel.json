@@ -5,7 +5,7 @@
   ],
   "routes": [
     {
-      "src": "/(.+\\.js)",
+      "src": "/(.+\\.(js|jsx))",
       "headers": {
         "Content-Type": "application/javascript"
       },
