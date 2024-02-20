@@ -7,15 +7,6 @@ const multer = require('multer');
 const upload = multer({limits: {fileSize: 10 * 1024 * 1024,}});
 const bodyParser = require('body-parser');
 
-const Hospitalrouter = require("./Routes/Hospitalrouter")
-const Usersrouter = require("./Routes/Userrouter")
-const HospitalDashboardrouter = require("./Routes/HospitalDashboardrouter")
-const Appointmentsrouter = require("./Routes/Appointmentsrouter")
-const HealthSheetrouter = require("./Routes/HealthSheetrouter")
-const Doctorrouter = require("./Routes/Doctorrouter")
-const Reviewsrouter = require("./Routes/ReviewsRouter")
-
-
 const app = express()
 const port = process.env.PORT || 3000
 
@@ -28,6 +19,14 @@ app.use(cors({
 app.use(bodyParser.json({ limit: '10mb' }));
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
 app.use(upload.single('image'));
+
+const Hospitalrouter = require("./Routes/Hospitalrouter")
+const Usersrouter = require("./Routes/Userrouter")
+const HospitalDashboardrouter = require("./Routes/HospitalDashboardrouter")
+const Appointmentsrouter = require("./Routes/Appointmentsrouter")
+const HealthSheetrouter = require("./Routes/HealthSheetrouter")
+const Doctorrouter = require("./Routes/Doctorrouter")
+const Reviewsrouter = require("./Routes/ReviewsRouter")
 
 
 app.use("/hospitals", Hospitalrouter)
