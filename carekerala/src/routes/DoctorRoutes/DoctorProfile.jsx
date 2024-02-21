@@ -6,6 +6,7 @@ import axios from "axios";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { addUserAuth, addAuthDetails } from "../../Redux/Features/AuthSlice";
+import PulseLoader from "react-spinners/PulseLoader";
 
 import BookedAppointments from "../../Components/DoctorsAppointments/BookedAppointments";
 import DoctorProfileEdit from "../../Components/DoctorProfile/DoctorProfileEdit";
@@ -28,6 +29,7 @@ function DoctorProfile() {
   const navigate = useNavigate();
   const { appointments, user } = useLoaderData();
   const [doctor, setDoctor] = useState(user);
+  const [loading, setLoading] = useState(false)
   const [appointmentsData, setAppointmentsData] = useState(appointments)
   const allAppointments = appointmentsData.filter((appointment) => !appointment.hospital);
   const bookedAppointments = appointmentsData.filter((appointment) => appointment.user === user._id);
@@ -51,6 +53,7 @@ function DoctorProfile() {
   }, []);
 
   const handleLogout = async () => {
+    setLoading(true)
     await axios
       .post(`${baseURL}/users/logout`)
       .then((res) => {
@@ -60,6 +63,7 @@ function DoctorProfile() {
         navigate("/users/login");
       })
       .catch((err) => {
+        setLoading(false)
         console.log(err);
       });
   };
@@ -68,7 +72,7 @@ function DoctorProfile() {
     <main className={styles.doctorProfileMain}>
       
         <button onClick={handleLogout} className={styles.logoutBtn}>
-          Logout
+          {loading ?  <PulseLoader size={7}   color={'rgb(236, 236, 236)'} /> : 'Logout'}
         </button>
 
         <section className={styles.profileSection}>
