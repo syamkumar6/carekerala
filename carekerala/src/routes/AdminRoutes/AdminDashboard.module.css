@@ -38,8 +38,7 @@ th{
 .btnRed {
     color: var(--btn-red);
     border: 1px solid var(--btn-red);
-    font-size: 0.8rem;
-    padding: .3rem .6rem;
+    padding: .5rem 1rem;
   }
   
   .btnRed:hover {
@@ -48,4 +47,10 @@ th{
     border: 1px solid var(--btn-red);
     transition: all 0.3s ease;
     cursor: pointer;
+  }
+.btnGreen{
+    background-color: var(--primary-color);
+    color: var(--text-white);
+    border: none;
+    padding: .5rem 1rem;
   }
