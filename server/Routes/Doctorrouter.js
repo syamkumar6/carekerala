@@ -155,7 +155,6 @@ router.post("/update-doctor/:userId", Verify, async (req, res) => {
   try {
     const userId = req.params.userId;
     const user = await Doctor.findById(userId);
-    console.log(user);
     const updatedData = req.body.editedDoctor;
     user.name = updatedData.name;
     user.image = updatedData.image;

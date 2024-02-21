@@ -7,6 +7,7 @@ import callIcon from "../../assets/callIcon.svg";
 import sheetIcon from "../../assets/sheetIcon.svg";
 import UpdateSheet from "./UpdateSheet";
 import PulseLoader from "react-spinners/PulseLoader";
+import toast from "react-hot-toast";
 
 
 function PersonalAppointments({ appointments, user, setAppointmentsData }) {
@@ -69,14 +70,10 @@ function PersonalAppointments({ appointments, user, setAppointmentsData }) {
                     </div>
                     <div className={styles.btnDiv}>
                       <button
-                        className={
-                          d.isApproved === false
-                            ? styles.btnGreenDisabled
-                            : styles.btnGreen
-                        }
+                        className={ styles.btnGreen}
                         onClick={() => {
-                          if (d.isApproved === false) {
-                            return;
+                          if (d.hSheetPermission === false) {
+                            return toast.error("User permission is required")
                           }
                           setData({
                             userId: d.user,
@@ -85,9 +82,8 @@ function PersonalAppointments({ appointments, user, setAppointmentsData }) {
                           });
                           setOpen(true);
                         }}
-                        disabled={d.isApproved === false}
                       >
-                        <img src={sheetIcon} alt="" />
+                      <img src={sheetIcon} alt="" />
                         View H-Sheet
                       </button>
 

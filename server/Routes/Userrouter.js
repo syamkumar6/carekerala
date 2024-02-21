@@ -7,7 +7,6 @@ const jwt = require('jsonwebtoken');
 
 router.post('/sign-up', async (req, res, next) => {
     try{
-        
         const {name, email, password} = req.body.values
         const existingUser = await Users.findOne({email})
         if(existingUser){
@@ -93,7 +92,6 @@ router.post('/admin/login', async (req, res, next) => {
 })
 
 const VerifyAdmin = (req, res, next) => {
-    console.log("hi")
     const token = req.cookies.admintoken
     if (!token) {
       return res.status(401).json({ Message: "we need token please provide it ." })

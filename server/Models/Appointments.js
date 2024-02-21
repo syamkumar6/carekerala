@@ -41,6 +41,10 @@ const AppointmentsSchema = new mongoose.Schema({
         type: Boolean,
         default: false,
     },
+    hSheetPermission: {
+        type: Boolean,
+        default: false,
+    }
 });
 
 const Appointments = mongoose.model("Appointments", AppointmentsSchema);

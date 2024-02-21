@@ -22,6 +22,13 @@ function Doctors() {
   const [searchValue, setSearchValue] = useState("");
   const doctorOptions = doctors.map((doctor) => ({id:doctor._id, name:doctor.name}))
 
+  useEffect(()=> {
+    window.scrollTo({
+      top: 0,
+    })
+    dispatch(addHospital(null));
+  },[])
+
   const handleSelectedDoctor = () =>{
     const selectedOptionId = document.getElementById("doctor-name").value;
     const selectedDoctor = doctorOptions.find(option => option.name === selectedOptionId);
@@ -35,10 +42,6 @@ function Doctors() {
   const handleDistrictChange = (district) => {
     setSelectedDistrict(district);
   };
-
-  useEffect(() => {
-    dispatch(addHospital(null));
-  }, []);
 
   const filteredDoctors =
     selectedDistrict === "All"

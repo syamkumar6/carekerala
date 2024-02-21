@@ -78,10 +78,9 @@
 }
 
 .btnRed {
-  align-self: flex-end;
   color: var(--btn-red);
   border: 1px solid var(--btn-red);
-  font-size: 0.8rem;
+  padding: .3rem .6rem;
 }
 
 .btnRed:hover {

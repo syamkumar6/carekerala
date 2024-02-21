@@ -4,6 +4,7 @@ import styles from "./DoctorPage.module.css";
 import arrowIcon from "../../assets/arrow-right-btn.svg";
 import { Link, useLoaderData } from "react-router-dom";
 import axios from "axios";
+import { useEffect } from "react";
 
 export async function loader({ params }) {
   const res = await axios.get(`${import.meta.env.VITE_BASE_URL}/doctors/` + params.doctorId);
@@ -17,6 +18,12 @@ const initiateCall = (phoneNumber) => {
 
 function DoctorPage() {
   const { doctor } = useLoaderData();
+
+  useEffect(()=> {
+    window.scrollTo({
+      top: 0,
+    });
+  },[])
    
   return (
     <main className={styles.DrPageMain}>

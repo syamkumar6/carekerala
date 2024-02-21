@@ -414,7 +414,6 @@ function UpdateSheet({ data }) {
                     <button
                       onClick={() => setIsEditing(true)}
                       className={styles.sheetBtn}
-                      disabled={editSheet?.updatePermission === false}
                     >
                       {" "}
                       <img src={editIcon} alt="" />
