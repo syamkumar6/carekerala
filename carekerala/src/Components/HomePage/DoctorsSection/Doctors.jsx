@@ -56,7 +56,7 @@ function Doctors({doctors}) {
                 })
             }
         </Slider>
-        <Link to={"/hospitals"} className={styles.doctorsBtn}>
+        <Link to={"/doctors"} className={styles.doctorsBtn}>
         View all <img src={arrow} alt="" />
       </Link>
        
