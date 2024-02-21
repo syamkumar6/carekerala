@@ -70,7 +70,8 @@ function BookingPage() {
     validationSchema: BookingSchema,
     onSubmit: (values) => {
       if (!user || !doctor) {
-        toast.error("Please login before submitting a request");
+        formik.resetForm();
+        toast.error("Please login before submitting a request")
         return;
       }
       let formData = {

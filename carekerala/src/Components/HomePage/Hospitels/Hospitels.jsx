@@ -11,11 +11,6 @@ import arrowLeft from "../../../assets/arrow-left.svg";
 
 function Hospitels({hospitals}) {
   
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-    });
-  };
 
   const CustomPrevArrow = (props) => (
     <div
@@ -68,7 +63,7 @@ function Hospitels({hospitals}) {
           return <HospitelCard key={index} data={d} />;
         })}
       </Slider>
-      <Link to={"/hospitals"} className={styles.hospitalsBtn} onClick={scrollToTop}>
+      <Link to={"/hospitals"} className={styles.hospitalsBtn}>
         View all <img src={arrow} alt="" />
       </Link>
     </div>

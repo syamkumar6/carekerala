@@ -83,7 +83,7 @@ function BookedAppointments({ appointments, user, setAppointmentsData }) {
                           </span>
                         ) : !d.hSheet ? (
                           <span className={styles.spanGreen}>Approved</span>
-                        ) : d.hSheet.updatePermission === false ? (
+                        ) : d.hSheetPermission === false ? (
                           <button
                             onClick={() => handlePermission(d._id)}
                             className={styles.btnGreen}

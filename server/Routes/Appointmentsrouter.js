@@ -63,8 +63,8 @@ router.post("/permission/:userId/:appointmentId", Verify, async (req, res) => {
     if(!appointment.hSheet){
       return res.status(404).json({ message: "Health Sheet is not avilable" })
     }
-    appointment.hSheet.updatePermission = !appointment.hSheet.updatePermission;
-    await appointment.hSheet.save();
+    appointment.hSheetPermission = !appointment.hSheetPermission;
+    await appointment.save();
 
     const updatedAppointments = await Appointments.find({user: userId}).populate('hospital').populate('doctor').populate('hSheet')
 
@@ -80,7 +80,6 @@ router.post("/users/booking",Verify, async (req, res) =>{
       const formData = req.body;
       const newAppointment = new Appointments(formData)
       const savedAppointment = await newAppointment.save()
-      console.log(savedAppointment)
       res.json({ message: "success", appointment: savedAppointment })
   }catch(err){
       console.log(err)
@@ -186,7 +185,6 @@ router.post("/approve/:appointmentId",hospitalVerify, async (req, res) => {
   try {
     const appointment = await Appointments.findById(req.params.appointmentId);
     const time = req.body.time
-    console.log(appointment)
     if (!appointment) {
       return res.status(404).json({ message: "Appointment not found" });
     }

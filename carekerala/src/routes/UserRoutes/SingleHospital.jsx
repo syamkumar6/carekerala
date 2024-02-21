@@ -43,6 +43,12 @@ function SingleHospital() {
   const [searchValue, setSearchValue] = useState("");
   const doctorOptions = hospital.doctors.map((doctor) => ({id:doctor._id, name:doctor.name}))
 
+  useEffect(()=> {
+    window.scrollTo({
+      top: 0,
+    });
+  },[])
+
   useEffect(() => {
     dispatch(addHospital(hospital));
     axios.defaults.withCredentials = true

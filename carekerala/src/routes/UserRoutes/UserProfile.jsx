@@ -24,8 +24,14 @@ function UserProfile() {
   const baseURL = import.meta.env.VITE_BASE_URL;
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
   const user = useSelector((state) => state.auth.authDetails);
+
+  useEffect(()=> {
+    window.scrollTo({
+      top: 0,
+    });
+  },[])
+  
   useEffect(() => {
     axios.defaults.withCredentials = true;
     axios.post(`${baseURL}/users/verify`).then((res) => {
@@ -57,6 +63,7 @@ function UserProfile() {
       axios.defaults.withCredentials = true;
       axios.post(`${baseURL}/appointments/permission/` + userId + `/` + appointmentId)
         .then((res) => {
+          console.log(res.data)
           setAppointments(res.data.appointments);
           toast.success(res.data.message);
         })
@@ -125,7 +132,7 @@ function UserProfile() {
                           </span>
                         ) : !d.hSheet ? (
                           <span className={styles.spanGreen}>Approved</span>
-                        ) : d.hSheet.updatePermission === false ? (
+                        ) : d?.hSheetPermission === false ? (
                           <button
                             onClick={() => handlePermission(d._id)}
                             className={styles.btnGreen}

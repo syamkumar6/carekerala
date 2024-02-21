@@ -125,6 +125,8 @@ function DoctorProfile() {
         {activeComponent === "hospital" && (
           <HospitalAppointments
             appointments={hospitalAppointments}
+            user={user}
+            setAppointmentsData={setAppointmentsData}
           />
         )}
         {activeComponent === "personal" && (

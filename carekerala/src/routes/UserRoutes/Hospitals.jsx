@@ -2,7 +2,7 @@
 import axios from "axios";
 import styles from "./Hospitals.module.css";
 import { Link, useLoaderData, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import locationIcon from "../../assets/locationIcon3.svg";
 import callIcon from "../../assets/call.svg";
@@ -20,6 +20,11 @@ function Hospitals() {
   const [selectedDistrict, setSelectedDistrict] = useState("All");
   const hospitalOptions = hospitals.map((h) => ({id:h._id, name:h.name}))
 
+  useEffect(()=> {
+    window.scrollTo({
+      top: 0,
+    });
+  },[])
 
   const handleSelectedDoctor = () =>{
     const selectedOptionId = document.getElementById("doctor-name").value;

@@ -34,6 +34,11 @@ function HomePage() {
   const hospitalOptions = hospitals.map((h) => ({id:h._id, name:h.name}))
   const doctorOptions = doctors.map((doctor) => ({id:doctor._id, name:doctor.name}))
 
+  useEffect(()=> {
+    window.scrollTo({
+      top: 0,
+    });
+  },[])
 
   const handleSelectedHospital = () =>{
     const selectedOptionId = document.getElementById("hospital-name").value;
