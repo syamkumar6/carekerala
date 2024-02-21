@@ -351,9 +351,9 @@ router.post("/handle-request/:doctorId", VerifyToken, async (req, res) => {
   }
 });
 
-router.post('/logout',Verify, (req, res) => {
-  res.clearCookie('hospitalToken');
-  res.json({ status: 'success', message: 'Logout successful' });
+router.post('/logout', (req, res) => {
+      res.cookie('hospitalToken',"",{expiresIn:new Date(0), sameSite: 'None', secure: true })
+      return res.status(200).json({ Status: "Success" });
 });
 
 module.exports = router;
