@@ -64,6 +64,19 @@ function Header() {
     }
   };
 
+  const handleNavigateToProfile = async (user.id) => {
+    setIsLoading(true);
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      scrollToTop()
+      navigate("/doctors-profile/" + user.id);
+    } catch (error) {
+      console.error("Error navigating to dashboard:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   const openSideNavBar = () => {
     setIsSideNavBarVisible(true);
   };
@@ -75,7 +88,6 @@ function Header() {
 
   const handleLogout = () => {
     try {
-      axios.defaults.withCredentials = true;
       axios
         .post(`${baseURL}/hospitals/dashboard/logout`)
         .then(() => {
@@ -167,7 +179,8 @@ function Header() {
                         <Link
                           to={"/doctors-profile/" + user.id}
                           className={styles.link}
-                          onClick={closeSideNavBar}
+                          onClick={()=>handleNavigateToProfile(user.id)}
+                          style={{ cursor: isLoading ? "wait" : "pointer" }}
                         >
                           <img src={profileIcon} alt="" /> {user?.name}
                         </Link>
