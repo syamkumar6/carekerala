@@ -124,8 +124,9 @@ router.get("/"), VerifyAdmin, async (req, res) => {
 }
 
 router.post('/logout', (req, res) => {
-      res.clearCookie('usertoken',{domain: 'https://carekerala-kerala.vercel.app',path: '/',secure: true,httpOnly: true});
-      return res.status(200).json({ status: "Success" });
+      res.cookie('usertoken',"",{expiresIn:new Date(0)})
+      return res.status(200).json({ Status: "Success" });
+ 
 });
 
 
