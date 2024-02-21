@@ -164,11 +164,11 @@ function AdminDashboard() {
                 <td>{hospital.name}</td>
                 <td>{hospital.email}</td>
                 <td>
-                <button onClick={()=> handleApproveHospital(hospital._id)}>Approve</button>
+                <button onClick={()=> handleApproveHospital(hospital._id)} className={styles.btnGreen}>Approve</button>
                 </td>
                 
                 <td>
-                  <button onClick={()=> handleRemoveHospital(hospital._id)}>Reject</button>
+                  <button onClick={()=> handleRemoveHospital(hospital._id)} className={styles.btnRed}>Reject</button>
                 </td>
               </tr>
             );
