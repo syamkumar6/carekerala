@@ -24,8 +24,17 @@ router.get("/", async (req, res, next) => {
 
 router.get("/admin", async (req, res, next) => {
   try {
-    const hospitals = await Hospital.find({}).populate("doctors");
-    res.status(200).json(hospitals);
+    const hospitals = await Hospital.find({})
+    const serializedHospitals = hospitals.map((hospital) => ({
+      _id: hospital._id,
+      name: hospital.name,
+      email: hospital.email,
+      district: hospital.district,
+      phone: hospital.phone,
+      isApproved: hospital.isApproved,
+      isVisible: hospital.isVisible
+    }));
+    res.status(200).json(serializedHospitals);
   } catch (err) {
     console.log(err);
     res.status(500).send("Server Error");
@@ -88,25 +97,7 @@ router.post("/:hospitalId/doctors", async (req, res, next) => {
   }
 });
 
-const VerifyAdmin = (req, res, next) => {
-  const token = req.cookies.admintoken;
-  if (!token) {
-    return res
-      .status(401)
-      .json({ Message: "we need token please provide it ." });
-  } else {
-    jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
-      if (err) {
-        return res.json({ Message: "Authentication Error." });
-      } else {
-        req.admin = decoded.admin;
-        next();
-      }
-    });
-  }
-};
-
-router.post("/approve/:hospitalId", VerifyAdmin, async (req, res, next) => {
+router.post("/approve/:hospitalId", async (req, res, next) => {
   try {
     const hospitalId = req.params.hospitalId;
 
@@ -117,7 +108,16 @@ router.post("/approve/:hospitalId", VerifyAdmin, async (req, res, next) => {
 
     hospital.isApproved = true;
     await hospital.save();
-    const hospitals = await Hospital.find({});
+    const hospitalsData = await Hospital.find({});
+    const hospitals = hospitalsData.map((hospital) => ({
+      _id: hospital._id,
+      name: hospital.name,
+      email: hospital.email,
+      district: hospital.district,
+      phone: hospital.phone,
+      isApproved: hospital.isApproved,
+      isVisible: hospital.isVisible
+    }));
 
     return res.status(201).json({ message: "Permission Approved", hospitals });
   } catch (err) {
@@ -126,7 +126,7 @@ router.post("/approve/:hospitalId", VerifyAdmin, async (req, res, next) => {
   }
 });
 
-router.delete("/remove/:hospitalId", VerifyAdmin, async (req, res, next) => {
+router.delete("/remove/:hospitalId", async (req, res, next) => {
   try {
     const hospitalId = req.params.hospitalId;
 
@@ -134,7 +134,16 @@ router.delete("/remove/:hospitalId", VerifyAdmin, async (req, res, next) => {
     if (!hospital) {
       return res.status(404).json({ error: "Hospital not found" });
     }
-    const hospitals = await Hospital.find({});
+    const hospitalsData = await Hospital.find({});
+    const hospitals = hospitalsData.map((hospital) => ({
+      _id: hospital._id,
+      name: hospital.name,
+      email: hospital.email,
+      district: hospital.district,
+      phone: hospital.phone,
+      isApproved: hospital.isApproved,
+      isVisible: hospital.isVisible
+    }));
 
     return res.status(200).json({ message: "Hospital Removed", hospitals });
   } catch (err) {
