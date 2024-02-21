@@ -219,7 +219,20 @@ router.delete("/delete/:hospitalId/:appointmentId",hospitalVerify, async (req, r
     const hospitalId = req.params.hospitalId
 
      await Appointments.findByIdAndDelete(appointmentId);
-    const updatedAppointments  = await Appointments.find({hospital: hospitalId}).populate('hospital').populate('doctor').populate('user')
+    const updatedAppointments  = await Appointments.find({hospital: hospitalId})
+    .populate({
+      path: 'hospital',
+      select: 'name _id ' 
+    })
+    .populate({
+      path: 'doctor',
+      select: 'name _id ' 
+    })
+    .populate({
+      path: 'user',
+      select: 'name _id ' 
+    })
+    .select('title fname lname date time phone _id isApproved')
 
     res.json({ message: "Appointment deleted successfully", appointments: updatedAppointments });
   } catch (error) {
