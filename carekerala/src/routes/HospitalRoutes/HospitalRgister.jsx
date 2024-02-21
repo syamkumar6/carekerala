@@ -104,7 +104,7 @@ function HospitalRgister() {
             <p>{Formik.errors.confirmPassword}</p>
           ) : null}
 
-          <button type="submit">{loading ?  <PulseLoader size={7}   color={'rgb(236, 236, 236)'} /> : 'Send a register requestRegister'}</button>
+          <button type="submit">Send a register requestRegister</button>
         </form>
         <div className={styles.bottomDiv}>
           <span>Already have an account ?</span>
