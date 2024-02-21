@@ -64,12 +64,12 @@ function Header() {
     }
   };
 
-  const handleNavigateToProfile = async (user.id) => {
-    setIsLoading(true);
+  const handleNavigateToProfile = async (userId) => {
     try {
+      setIsLoading(true);
       await new Promise((resolve) => setTimeout(resolve, 1000));
       scrollToTop()
-      navigate("/doctors-profile/" + user.id);
+      navigate("/doctors-profile/" + userId);
     } catch (error) {
       console.error("Error navigating to dashboard:", error);
     } finally {
