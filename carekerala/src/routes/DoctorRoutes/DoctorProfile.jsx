@@ -51,7 +51,6 @@ function DoctorProfile() {
   }, []);
 
   const handleLogout = async () => {
-    axios.defaults.withCredentials = true;
     await axios
       .post(`${baseURL}/users/logout`)
       .then((res) => {
