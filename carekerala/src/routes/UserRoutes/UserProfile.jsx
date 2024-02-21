@@ -39,35 +39,29 @@ function UserProfile() {
   }, []);
 
   const handleDeleteAppointment = (appointmentId) => {
-    setLoading(true)
     const userId = user.id;
     axios.defaults.withCredentials = true;
     axios.delete(`${baseURL}/appointments/` + userId + `/` + appointmentId)
       .then((res) => {
         setAppointments(res.data.appointments);
-        setLoading(false)
         toast.success(res.data.message);
       })
       .catch((error) => {
-        setLoading(false)
         console.error("Error deleting appointment:", error);
       });
   };
 
   const handlePermission = (appointmentId) => {
     try {
-      setLoading(true)
       const userId = user.id;
       axios.defaults.withCredentials = true;
       axios.post(`${baseURL}/appointments/permission/` + userId + `/` + appointmentId)
         .then((res) => {
           setAppointments(res.data.appointments);
-          setLoading(false)
           toast.success(res.data.message);
         })
         .catch((error) => {
           toast.error(error.response.data.message);
-          setLoading(false)
           console.error(error);
         });
     } catch (err) {
@@ -86,6 +80,7 @@ function UserProfile() {
         navigate("/users/login");
       })
       .catch((err) => {
+        setLoading(false)
         console.log(err);
       });
   };
@@ -96,7 +91,7 @@ function UserProfile() {
           type="button"
           onClick={handleLogout}
           className={styles.logoutBtn}>
-          Logout
+          {loading ?  <PulseLoader size={7}   color={'rgb(236, 236, 236)'} /> : 'Logout'}
         </button>
       <div className={styles.appointmentDiv}>
         <h2>Appointments</h2>
@@ -135,14 +130,14 @@ function UserProfile() {
                             onClick={() => handlePermission(d._id)}
                             className={styles.btnGreen}
                           >
-                            {loading ?  <PulseLoader size={7}   color={'rgb(236, 236, 236)'} /> : 'Allow H-Sheet permission'}
+                            Allow H-Sheet permission
                           </button>
                         ) : (
                           <button
                             onClick={() => handlePermission(d._id)}
                             className={styles.btnRed}
                           >
-                            {loading ?  <PulseLoader size={7}   color={'rgb(236, 236, 236)'} /> : 'Cancel H-Sheet permission'}
+                            Cancel H-Sheet permission
                           </button>
                         )}
                       </div>
@@ -170,7 +165,7 @@ function UserProfile() {
                         onClick={() => handleDeleteAppointment(d._id)}
                         className={styles.btnRed2}
                       >
-                       {loading ?  <PulseLoader size={7}   color={'rgb(236, 236, 236)'} /> : 'Cancel Appointment'}
+                       Cancel Appointment
                       </button>
                     </div>
                   </li>
