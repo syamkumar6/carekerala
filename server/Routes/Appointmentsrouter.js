@@ -27,7 +27,7 @@ router.post('/verify', Verify, (req, res, next) => {
 router.get("/:userId", Verify, async (req, res) => {
     try{
        const userId = req.params.userId
-       const appointments = await Appointments.find({user: userId}).populate('hospital').populate('doctor').populate('hSheet').populate('user')
+       const appointments = await Appointments.find({user: userId}).populate('hospital').populate('doctor')
      
        res.status(200).json(appointments)
     }catch(err){
@@ -41,7 +41,7 @@ router.delete("/:userId/:appointmentId",Verify, async (req, res) => {
     const appointmentId = req.params.appointmentId;
 
     await Appointments.findByIdAndDelete(appointmentId);
-    const updatedAppointments  = await Appointments.find({user: userId}).populate('hospital').populate('doctor').populate('hSheet').populate('user')
+    const updatedAppointments  = await Appointments.find({user: userId}).populate('hospital').populate('doctor')
     
     res.json({ message: "Appointment Canceled successfully", appointments: updatedAppointments });
   } catch (error) {
@@ -66,7 +66,7 @@ router.post("/permission/:userId/:appointmentId", Verify, async (req, res) => {
     appointment.hSheetPermission = !appointment.hSheetPermission;
     await appointment.save();
 
-    const updatedAppointments = await Appointments.find({user: userId}).populate('hospital').populate('doctor').populate('hSheet')
+    const updatedAppointments = await Appointments.find({user: userId}).populate('hospital').populate('doctor')
 
     res.status(200).json({ message: "Permission updated successfully" ,appointments: updatedAppointments });
   } catch (error) {
