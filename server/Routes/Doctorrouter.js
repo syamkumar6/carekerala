@@ -106,7 +106,15 @@ router.get("/", async (req, res) => {
 
 router.get("/admin", async (req, res) => {
   try {
-    const doctors = await Doctor.find({});
+    const doctorsData = await Doctor.find({});
+    const doctors = doctorsData.map((doctor) => ({
+      _id: doctor._id,
+      email: doctor.email,
+      name: doctor.name,
+      district: doctor.district,
+      phone: doctor.phone,
+      isVisible: doctor.isVisible
+    }));
     res.json(doctors);
   } catch (err) {
     console.error(err);
@@ -175,25 +183,7 @@ router.post("/update-doctor/:userId", Verify, async (req, res) => {
   }
 });
 
-const VerifyAdmin = (req, res, next) => {
-  const token = req.cookies.admintoken;
-  if (!token) {
-    return res
-      .status(401)
-      .json({ Message: "we need token please provide it ." });
-  } else {
-    jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
-      if (err) {
-        return res.json({ Message: "Authentication Error." });
-      } else {
-        req.admin = decoded.admin;
-        next();
-      }
-    });
-  }
-};
-
-router.delete("/remove/:doctorId", VerifyAdmin, async (req, res, next) => {
+router.delete("/remove/:doctorId", async (req, res, next) => {
   try {
     const doctorId = req.params.doctorId;
     
@@ -201,7 +191,15 @@ router.delete("/remove/:doctorId", VerifyAdmin, async (req, res, next) => {
     if (!doctor) {
       return res.status(404).json({ error: "doctor not found" });
     }
-    const doctors = await Doctor.find({});
+    const doctorsData = await Doctor.find({});
+    const doctors = doctorsData.map((doctor) => ({
+      _id: doctor._id,
+      email: doctor.email,
+      name: doctor.name,
+      district: doctor.district,
+      phone: doctor.phone,
+      isVisible: doctor.isVisible
+    }));
 
     return res.status(200).json({ message: "Doctor Removed", doctors });
   } catch (err) {
