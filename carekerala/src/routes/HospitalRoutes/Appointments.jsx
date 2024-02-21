@@ -83,16 +83,13 @@ function Appointments() {
   };
 
   const handleReject = async (appointmentId) => {
-    setLoading(true)
     axios.defaults.withCredentials = true;
     try {
       const res = await axios.delete(`${import.meta.env.VITE_BASE_URL}/appointments/delete/${hospitalId}/${appointmentId}`);
       setAppointments(res.data.appointments);
       toast.success("Appointment Canceled")
-      setLoading(false)
     } catch (err) {
       console.log(err);
-      setLoading(false)
     }
   };
 
@@ -154,7 +151,7 @@ function Appointments() {
                         onClick={() => handleReject(d._id)}
                         className={styles.btnRed}
                       >
-                        {loading ?  <PulseLoader size={7}   color={'rgb(236, 236, 236)'} /> : 'Reject'}
+                        Reject
                       </button>
                       <button
                         onClick={() => {
