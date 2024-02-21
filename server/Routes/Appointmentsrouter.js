@@ -174,7 +174,20 @@ const hospitalVerify = (req, res, next) => {
 router.get("/hospitals/:hospitalId", hospitalVerify, async(req, res) => {
   try{
     const hospitalId = req.params.hospitalId
-    const appointments = await Appointments.find({hospital: hospitalId}).populate('hospital').populate('doctor').populate('user')
+    const appointments = await Appointments.find({hospital: hospitalId})
+    .populate({
+      path: 'hospital',
+      select: 'name _id ' 
+    })
+    .populate({
+      path: 'doctor',
+      select: 'name _id ' 
+    })
+    .populate({
+      path: 'user',
+      select: 'name _id ' 
+    })
+    .select('title fname lname date time phone _id isApproved')
     res.status(200).json(appointments)
   }catch(err){
     console.log(err)
