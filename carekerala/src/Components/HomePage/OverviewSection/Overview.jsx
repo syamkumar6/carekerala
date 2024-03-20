@@ -62,19 +62,19 @@ function Overview() {
             +91-62-000-2-000-2
           </span>
           <div className={styles.socialMediaIcons}>
-            <Link to={"#"}>
-              <img src={facebookIcon} alt="" />
+             <Link to={"#"} aria-label="Facebook">
+                <img src={facebookIcon} alt="Facebook" />
+             </Link>
+            <Link to={"#"} aria-label="WhatsApp">
+              <img src={whatsappIcon} alt="WhatsApp" />
             </Link>
-            <Link to={"#"}>
-              <img src={whatsappIcon} alt="" />
+            <Link to={"#"} aria-label="Instagram">
+              <img src={instagramIcon} alt="Instagram" />
             </Link>
-            <Link to={"#"}>
-              <img src={instagramIcon} alt="" />
+            <Link to={"#"} aria-label="LinkedIn">
+              <img src={linkedinIcon} alt="LinkedIn" />
             </Link>
-            <Link to={"#"}>
-              <img src={linkedinIcon} alt="" />
-            </Link>
-          </div>
+           </div>
         </div>
       </div>
       <div className={styles.ratingsDiv}>
