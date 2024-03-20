@@ -56,13 +56,13 @@ function Footer() {
           <div>
             <h3 className={styles.innerh2}>Social Media</h3>
             <div className={styles.socialMediaIcons}>
-              <Link to={"#"} className={styles.footerLink}>
+              <Link to={"#"} className={styles.footerLink} aria-label="Facebook">
                 <img src={facebookIcon} alt="" />
               </Link>
-              <Link to={"#"} className={styles.footerLink}>
+              <Link to={"#"} className={styles.footerLink} aria-label="Whatsapp">
                 <img src={whatsappIcon} alt="" />
               </Link>
-              <Link to={"#"} className={styles.footerLink}>
+              <Link to={"#"} className={styles.footerLink} aria-label="Instagram">
                 <img src={instagramIcon} alt="" />
               </Link>
             </div>
