@@ -1,8 +1,8 @@
 User-agent: *
+Allow: /
 Disallow: /admin/login
 Disallow: /users/register
 Disallow: /users/profile/:userId
-Disallow: /h-sheet/:userId
 Disallow: /hospitals/register
 Disallow: /hospitals/login
-sitemap: https://carekerala-kerala.vercel.app/sitemap-file.xml
+Sitemap: https://carekerala-kerala.vercel.app/sitemap-file.xml
