@@ -113,7 +113,7 @@ function HomePage() {
       </div>
     </div>
     <div className={styles.contactBtn}>
-      <button onClick={initiateCall}><img src={callIcon} alt="" /></button>
+      <button onClick={initiateCall} aria-label="Contact Button"><img src={callIcon} alt="" /></button>
     </div>
   </section>
 
