@@ -61,7 +61,7 @@ function HomePage() {
                 dispatch(addUserAuth(true))
                 dispatch(addAuthDetails(res.data.user))
               }else{
-                alert(res.data.Meassage)
+                console.log("Verification failed")
               }
           })
          
