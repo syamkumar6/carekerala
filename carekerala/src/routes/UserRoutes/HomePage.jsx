@@ -54,7 +54,8 @@ function HomePage() {
 
 
       useEffect(() => {
-        axios.defaults.withCredentials = true
+        try{
+          axios.defaults.withCredentials = true
         axios.post(`${baseURL}/users/verify`)
           .then(res => {
               if(res.data.Status === "Verify-Success") {
@@ -64,6 +65,9 @@ function HomePage() {
                 console.log("Verification failed")
               }
           })
+        } catch{
+          console.log("Server Side Error")
+        }
          
       }, [])
 
