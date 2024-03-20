@@ -205,7 +205,7 @@ function Header() {
                   </li>
                 )}
               </ul>
-              <button onClick={openSideNavBar} className={styles.menuBtn}>
+              <button onClick={openSideNavBar} className={styles.menuBtn} aria-label="Open Side Navigation">
                 <img src={menuIcon} alt="" />
               </button>
             </>
@@ -216,7 +216,7 @@ function Header() {
             isSideNavBarVisible ? styles.sideNavBarVsbl : styles.sideNavBarHide
           }`}
         >
-          <button onClick={closeSideNavBar} className={styles.btnClose}>
+          <button onClick={closeSideNavBar} className={styles.btnClose} aria-label="Close Side Navigation">
             <img src={closeIcon} alt="" />
           </button>
           <nav>
